@@ -49,9 +49,11 @@
                  data.predictions.forEach(prediction => {
                    tableBody += `
                    <tr>
-                   <td>${prediction.match}</td>
-                   <td>${prediction.result}</td>
-                   <td>${prediction.confidence}%</td>
+                   <td>${prediction.Match}</td>
+                   <td>${prediction.Vesult}</td>
+                   <td>${prediction.Prediction}%</td>
+                   <td>${prediction.Probability}%</td>
+                   <td>${prediction.Market}%</td>
                    </tr>`;
                  });
                  document.querySelector('table').innerHTML += tableBody;
