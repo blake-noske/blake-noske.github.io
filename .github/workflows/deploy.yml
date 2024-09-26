@@ -3,17 +3,17 @@ name: Deploy Website Code to GitHub Pages
 on:
   push:
     branches:
-      - Prod  # Only triggers when changes are pushed to the Prod branch
+      - prod  # Only triggers when changes are pushed to the prod branch
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Prod branch
+      - name: Checkout prod branch
         uses: actions/checkout@v2
         with:
-          ref: Prod  # Checkout the Prod branch
+          ref: prod  # Checkout the prod branch
 
       - name: Copy Website Code folder to gh-pages branch
         run: |
