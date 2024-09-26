@@ -17,8 +17,8 @@ jobs:
 
       - name: Copy Website Code folder to gh-pages branch
         run: |
-          git config --global blake-noske
-          git config --global blake.noske@gmail.com
+          git config --global user.name 'blake-noske'  # Replace with your GitHub username
+          git config --global user.email 'blake.noske@gmail.com'  # Replace with your email
           # Switch to the gh-pages branch
           git checkout gh-pages || git checkout --orphan gh-pages
           # Remove all files (if any) from gh-pages branch
