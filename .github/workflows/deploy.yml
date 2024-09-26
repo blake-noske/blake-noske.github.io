@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - Prod  # Only triggers when changes are pushed to the Prod branch
+  workflow_dispatch:
 
 jobs:
   deploy:
