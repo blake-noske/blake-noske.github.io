@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Sports Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .predictions {
+            margin: 20px auto;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .predictions table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .predictions th, .predictions td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Upcoming Match Predictions</h1>
+
+    <div class="predictions">
+        <h2>Round Predictions</h2>
+        <table>
+           <script>
+             fetch('predictions.json')
+               .then(response => response.json())
+               .then(data => {
+                 let tableBody = '';
+                 data.predictions.forEach(prediction => {
+                   tableBody += `
+                   <tr>
+                   <td>${prediction.match}</td>
+                   <td>${prediction.result}</td>
+                   <td>${prediction.confidence}%</td>
+                   </tr>`;
+                 });
+                 document.querySelector('table').innerHTML += tableBody;
+               });
+           </script>
+        </table>
+    </div>
+
+</body>
+</html>
