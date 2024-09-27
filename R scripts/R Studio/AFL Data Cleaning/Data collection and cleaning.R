@@ -611,6 +611,9 @@ Next_round$utcStartTime <- ymd_hms(Next_round$utcStartTime, tz = "UTC")
 Next_round$local_time <- with_tz(Next_round$utcStartTime, tzone = Next_round$venue.timezone)
 Next_round$local_time <- as.character(Next_round$local_time)
 
+round_name <- data.frame(
+  Round_Name = Next_round$round.name[1]
+)
 
 Next_round <- Next_round %>%
   select(round.name,utcStartTime,local_time,home.team.name,away.team.name,venue.name,venue.location,venue.timezone)
@@ -709,8 +712,10 @@ matches_filtered <- matches %>%
          weather.weatherType)
 matches_filtered <- na.omit(matches_filtered)
 
-setwd("C:/Users/blake/Desktop/AFL Odds/cleaned data")
 #Export cleaned data set to CSV or another format for Python
+setwd("C:/Users/blake/Desktop/AFL Odds/Website code")
+write_json(round_name, "Round.json")
+setwd("C:/Users/blake/Desktop/AFL Odds/cleaned data")
 write.csv(matches_filtered, "afl_match_results_cleaned.csv", row.names = FALSE)
 write.csv(new_team_stats, "afl_team_stats_cleaned.csv", row.names = FALSE)
 write.csv(current_team_streaks, "afl_team_streaks_cleaned.csv", row.names = TRUE)

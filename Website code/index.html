@@ -34,29 +34,42 @@
         }
     </style>
     <script>
-        // Function to load and display predictions
-        async function loadPredictions() {
+        async function loadRound() {
             try {
-                // Fetch the predictions.json file
+                const response = await fetch('Round.json'); // Update with the actual filename if different
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const roundData = await response.json();
+                return roundData.round; // Assuming your JSON structure has a "round" property
+            } catch (error) {
+                console.error('Error fetching round data:', error);
+                return 'Unknown Round'; // Fallback if there’s an error
+            }
+        }
+
+        async function loadPredictions() {
+            const round = await loadRound(); // Fetch the round first
+            const predictionsContainer = document.getElementById('predictions');
+
+            // Update the header with the round number
+            predictionsContainer.innerHTML = `<h2>Upcoming Predictions for Round ${round}</h2>`; 
+
+            try {
                 const response = await fetch('predictions.json');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const data = await response.json(); // Parse JSON data
+                const data = await response.json();
 
-                // Get the element where you want to display the predictions
-                const predictionsContainer = document.getElementById('predictions');
-                predictionsContainer.innerHTML = '<h2>Upcoming Predictions</h2>'; // Add a header for the predictions section
-
-
-                // Loop through the predictions and create HTML elements to display them
                 data.forEach(prediction => {
                     const predictionElement = document.createElement('div');
-                    predictionElement.className = 'prediction'; // Add a class for styling
+                    predictionElement.className = 'prediction'; 
                     predictionElement.innerHTML = `
                         <h3 class="match">${prediction.Match} at ${prediction.Venue}</h3>
                         <p>Result of ${prediction.Prediction} with a probability of ${prediction.Probability}</p>
                         <p>Look for markets offering a return greater than ${prediction.Market}</p>
+
                     `;
                     predictionsContainer.appendChild(predictionElement);
                 });
@@ -65,12 +78,18 @@
             }
         }
 
-        // Call the function when the page loads
         window.onload = loadPredictions;
     </script>
 </head>
 <body>
 
-    <h1>Upcoming Match Predictions</h1>
+    <h1>The ATM</h1>
     <div id="predictions"></div></body>
 </html>
+
+
+
+<h3 class="match">${prediction.Match} at ${prediction.Venue}</h3>
+                        <p>Result of ${prediction.Prediction} with a probability of ${prediction.Probability}</p>
+                        <p>Look for markets offering a return greater than ${prediction.Market}</p>
+
