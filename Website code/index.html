@@ -46,16 +46,17 @@
 
                 // Get the element where you want to display the predictions
                 const predictionsContainer = document.getElementById('predictions');
+                predictionsContainer.innerHTML = '<h2>Upcoming Predictions</h2>'; // Add a header for the predictions section
+
 
                 // Loop through the predictions and create HTML elements to display them
                 data.forEach(prediction => {
                     const predictionElement = document.createElement('div');
+                    predictionElement.className = 'prediction'; // Add a class for styling
                     predictionElement.innerHTML = `
-                        <h3>Match: ${prediction.Match}</h3>
-                        <p>Venue: ${prediction.Venue}</p>
-                        <p>Prediction: ${prediction.Prediction}</p>
-                        <p>Market: ${prediction.Market}</p>
-                        <p>Probability: ${prediction.Probability}</p>
+                        <h3 class="match">${prediction.Match} at ${prediction.Venue}</h3>
+                        <p>Result of ${prediction.Prediction} with a probability of ${prediction.Probability}</p>
+                        <p>Look for markets offering a return greater than ${prediction.Market}</p>
                     `;
                     predictionsContainer.appendChild(predictionElement);
                 });
