@@ -27,25 +27,29 @@ jobs:
           git config --global user.name 'blake-noske'  # Replace with your GitHub username
           git config --global user.email 'blake.noske@gmail.com'  # Replace with your email
           
-          # Switch to the gh-pages branch
-          git checkout gh-pages || git checkout --orphan gh-pages
-          
-          # Remove all files (if any) from gh-pages branch
-          git rm -rf .
+          # Switch to the prod branch to access the Website code folder
+          git checkout prod
       
-          # List the current directory and the contents of the 'Website code' folder
-          echo "Current directory contents:"
+          # List the contents of the current directory to check for 'Website code'
+          echo "Current directory contents before switching branches:"
           ls -R .
       
           echo "Contents of 'Website code':"
           ls -R "Website code"
       
-          # # Copy the contents of Website code folder
-          # echo "Copying files from 'Website code' to 'gh-pages'"
-          # cp -r "Website code/"* .
+          # Switch to the gh-pages branch
+          git checkout gh-pages || git checkout --orphan gh-pages
       
-          # # Add and commit changes
-          # git add .
-          # git commit -m "Update website from Website code folder"
-          # git push origin gh-pages --force
+          # Remove all files (if any) from gh-pages branch
+          git rm -rf .
+      
+          # Copy the contents of the 'Website code' folder from the prod branch
+          echo "Copying files from 'Website code' to 'gh-pages'"
+          cp -r "../prod/Website code/"* .
+      
+          # Add and commit changes
+          git add .
+          git commit -m "Update website from Website code folder"
+          git push origin gh-pages --force
+
 
