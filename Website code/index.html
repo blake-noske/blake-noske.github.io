@@ -33,34 +33,43 @@
             border-bottom: 1px solid #ddd;
         }
     </style>
+    <script>
+        // Function to load and display predictions
+        async function loadPredictions() {
+            try {
+                // Fetch the predictions.json file
+                const response = await fetch('predictions.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json(); // Parse JSON data
+
+                // Get the element where you want to display the predictions
+                const predictionsContainer = document.getElementById('predictions');
+
+                // Loop through the predictions and create HTML elements to display them
+                data.forEach(prediction => {
+                    const predictionElement = document.createElement('div');
+                    predictionElement.innerHTML = `
+                        <h3>Match: ${prediction.Match}</h3>
+                        <p>Venue: ${prediction.Venue}</p>
+                        <p>Prediction: ${prediction.Prediction}</p>
+                        <p>Market: ${prediction.Market}</p>
+                        <p>Probability: ${prediction.Probability}</p>
+                    `;
+                    predictionsContainer.appendChild(predictionElement);
+                });
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = loadPredictions;
+    </script>
 </head>
 <body>
 
     <h1>Upcoming Match Predictions</h1>
-
-    <div class="predictions">
-        <h2>Round Predictions</h2>
-        <table>
-           <script>
-             fetch('predictions.json')
-               .then(response => response.json())
-               .then(data => {
-                 let tableBody = '';
-                 data.predictions.forEach(prediction => {
-                   tableBody += `
-                   <tr>
-                   <td>${prediction.Match}</td>
-                   <td>${prediction.Vesult}</td>
-                   <td>${prediction.Prediction}%</td>
-                   <td>${prediction.Probability}%</td>
-                   <td>${prediction.Market}%</td>
-                   </tr>`;
-                 });
-                 document.querySelector('table').innerHTML += tableBody;
-               });
-           </script>
-        </table>
-    </div>
-
-</body>
+    <div id="predictions"></div></body>
 </html>
