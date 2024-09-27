@@ -41,7 +41,7 @@
                     throw new Error('Network response was not ok');
                 }
                 const roundData = await response.json();
-                return roundData.Round_Name; // Assuming your JSON structure has a "round" property
+                return roundData[0].Round_Name; // Assuming your JSON structure has a "round" property
             } catch (error) {
                 console.error('Error fetching round data:', error);
                 return 'Unknown Round'; // Fallback if there’s an error
@@ -53,7 +53,7 @@
             const predictionsContainer = document.getElementById('predictions');
 
             // Update the header with the round number
-            predictionsContainer.innerHTML = `<h2>Upcoming Predictions for Round ${round}</h2>`; 
+            predictionsContainer.innerHTML = `<h2>Upcoming Predictions for ${round}</h2>`; 
 
             try {
                 const response = await fetch('predictions.json');
@@ -86,4 +86,3 @@
     <h1>The ATM</h1>
     <div id="predictions"></div></body>
 </html>
-
