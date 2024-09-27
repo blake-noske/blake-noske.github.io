@@ -15,6 +15,9 @@ jobs:
         with:
           ref: prod  # Checkout the prod branch
 
+      - name: List current directory
+        run: ls -R  # This will help you debug
+
       - name: Copy Website Code folder to gh-pages branch
         run: |
           git config --global user.name 'blake-noske'  # Replace with your GitHub username
@@ -24,7 +27,7 @@ jobs:
           # Remove all files (if any) from gh-pages branch
           git rm -rf .
           # Copy the contents of Website code folder
-          cp -r Website\ code/* .
+          cp -r "Website code/"* gh-pages/
           # Add and commit changes
           git add .
           git commit -m "Update website from Website code folder"
