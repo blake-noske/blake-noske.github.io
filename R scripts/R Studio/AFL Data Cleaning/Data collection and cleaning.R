@@ -1,5 +1,5 @@
 season = 2024
-round = "GF"
+#round = "GF"
 
 # set weather replacement at start of year
 weather_replacements <- c(
@@ -21,6 +21,13 @@ for (i in 1:y) {
   matches <- matches %>% select(-c(ss2))
   
   matches <- rbind(matches,m)
+}
+
+max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
+max_year <- matches$round.year[length(matches$round.year)]
+
+if (max_year == season && max_year == "GF") {
+  stop()
 }
 
 matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
