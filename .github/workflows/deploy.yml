@@ -26,16 +26,22 @@ jobs:
         run: |
           git config --global user.name 'blake-noske'  # Replace with your GitHub username
           git config --global user.email 'blake.noske@gmail.com'  # Replace with your email
-          
+      
           # Switch to the prod branch to access the Website code folder
           git checkout prod
       
-          # List the contents of the current directory to check for 'Website code'
-          echo "Current directory contents before switching branches:"
+          # List the contents of the current directory to confirm 'Website code' exists
+          echo "Current directory contents:"
           ls -R .
       
           echo "Contents of 'Website code':"
           ls -R "Website code"
+      
+          # Create a temporary directory to store the copied files
+          mkdir -p temp_website_code
+      
+          # Copy the contents of the 'Website code' folder to the temporary directory
+          cp -r "Website code/"* temp_website_code/
       
           # Switch to the gh-pages branch
           git checkout gh-pages || git checkout --orphan gh-pages
@@ -43,13 +49,13 @@ jobs:
           # Remove all files (if any) from gh-pages branch
           git rm -rf .
       
-          # Copy the contents of the 'Website code' folder from the prod branch
-          echo "Copying files from 'Website code' to 'gh-pages'"
-          cp -r "../prod/Website code/"* .
+          # Move the files from the temporary directory into the gh-pages branch
+          mv temp_website_code/* .
+      
+          # Clean up the temporary directory
+          rm -rf temp_website_code
       
           # Add and commit changes
           git add .
           git commit -m "Update website from Website code folder"
           git push origin gh-pages --force
-
-
