@@ -1,5 +1,5 @@
 season = 2024
-round = "PF"
+round = "GF"
 
 # set weather replacement at start of year
 weather_replacements <- c(
