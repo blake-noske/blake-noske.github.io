@@ -40,12 +40,12 @@ jobs:
           echo "Contents of 'Website code':"
           ls -R "Website code"
       
-          # Copy the contents of Website code folder
-          echo "Copying files from 'Website code' to 'gh-pages'"
-          cp -r "Website code/"* .
+          # # Copy the contents of Website code folder
+          # echo "Copying files from 'Website code' to 'gh-pages'"
+          # cp -r "Website code/"* .
       
-          # Add and commit changes
-          git add .
-          git commit -m "Update website from Website code folder"
-          git push origin gh-pages --force
+          # # Add and commit changes
+          # git add .
+          # git commit -m "Update website from Website code folder"
+          # git push origin gh-pages --force
 
