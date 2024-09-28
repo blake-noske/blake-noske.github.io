@@ -1,0 +1,31 @@
+name: Generate Predictions
+
+# Schedule: Every Wednesday, Thursday, and Friday at 7 PM UTC (adjust time zone as needed)
+on:
+  schedule:
+    - cron: "0 10 * * 1"  # Every Monday at 8 PM AEST or 9 PM AEDST
+    - cron: "0 10 * * 2"  # Every Tuesday at 8 PM AEST or 9 PM AEDST
+    - cron: "0 10 * * 3"  # Every Wednesday at 8 PM AEST or 9 PM AEDST
+    - cron: "0 10 * * 4"  # Every Thursday at 8 PM AEST or 9 PM AEDST
+    - cron: "0 9 * * 5"  # Every Friday at 7 PM AEST or 8 PM AEDST
+    - cron: "0 8 * * 6"  # Every Saturday at 6 PM AEST or 7 PM AEDST
+  workflow_dispatch:
+
+jobs:
+  run_r_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install R packages
+        run: |
+          Rscript -e "install.packages(c('fitzRoy','lubridate','tidyr,'dplyr','zoo','httr','jsonlite','glue')), repos='http://cran.rstudio.com/')"  # Replace with the actual packages your script needs
+
+      - name: Run R script
+        run: |
+          Rscript "R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R  # Adjust the path if necessary
