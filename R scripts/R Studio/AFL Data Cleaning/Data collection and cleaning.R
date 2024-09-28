@@ -1,5 +1,4 @@
 season = 2024
-#round = "GF"
 
 # set weather replacement at start of year
 weather_replacements <- c(
@@ -29,6 +28,7 @@ max_year <- matches$round.year[length(matches$round.year)]
 if (max_year == season && max_year == "GF") {
   stop()
 }
+round = matches$round.roundNumber[length(matches$round.roundNumber)]+1
 
 matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
 matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
