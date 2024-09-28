@@ -24,7 +24,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e "install.packages(c('fitzRoy','lubridate','tidyr,'dplyr','zoo','httr','jsonlite','glue')), repos='http://cran.rstudio.com/')"  # Replace with the actual packages your script needs
+          Rscript -e "install.packages(c('fitzRoy','lubridate','tidyr','dplyr','zoo','httr','jsonlite','glue')), repos='http://cran.rstudio.com/')"  # Replace with the actual packages your script needs
 
       - name: Run R script
         run: |
