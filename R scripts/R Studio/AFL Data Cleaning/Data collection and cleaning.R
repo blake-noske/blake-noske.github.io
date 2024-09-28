@@ -1,3 +1,6 @@
+install.packages(c("fitzRoy","lubridate","tidyr","dplyr","zoo","httr","jsonlite","glue"))
+
+
 library(fitzRoy)
 library(lubridate)
 library(tidyr)
@@ -5,7 +8,6 @@ library(dplyr)
 library(zoo)
 library(httr)
 library(jsonlite)
-library(lubridate)
 library(glue)
 
 

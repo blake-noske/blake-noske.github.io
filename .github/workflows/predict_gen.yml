@@ -22,10 +22,6 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
 
-      - name: Install R packages
-        run: |
-          Rscript -e "install.packages(c('fitzRoy','lubridate','tidyr','dplyr','zoo','httr','jsonlite','glue'), repos='http://cran.rstudio.com/')"  # Replace with the actual packages your script needs
-
       - name: Run R script
         run: |
           Rscript "R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R"  # Adjust the path if necessary
