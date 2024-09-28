@@ -28,4 +28,4 @@ jobs:
 
       - name: Run R script
         run: |
-          Rscript "R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R  # Adjust the path if necessary
+          Rscript "R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R"  # Adjust the path if necessary
