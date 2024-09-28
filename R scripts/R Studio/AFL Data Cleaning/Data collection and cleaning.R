@@ -1,3 +1,14 @@
+library(fitzRoy)
+library(lubridate)
+library(tidyr)
+library(dplyr)
+library(zoo)
+library(httr)
+library(jsonlite)
+library(lubridate)
+library(glue)
+
+
 season = 2024
 
 # set weather replacement at start of year
