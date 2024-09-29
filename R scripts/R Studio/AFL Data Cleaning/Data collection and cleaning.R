@@ -41,8 +41,8 @@ for (i in 1:y) {
   matches <- rbind(matches,m)
 }
 
-max_round <- as.numeric(matches$round.abbreviation[length(matches$round.abbreviation)])
-max_year <- matches$round.year[length(matches$round.year)]
+max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
+max_year <- as.numeric(matches$round.year[length(matches$round.year)])
 
 if (max_year == season && max_round != "GF") {
   round = matches$round.roundNumber[length(matches$round.roundNumber)]+1
