@@ -27,14 +27,10 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
 
-      - name: Install specific version of fitzRoy
-        run: |
-          Rscript -e 'remotes::install_version("fitzRoy", version = "1.5.0")' # Replace with the latest version
-
-        
       - name: Install R packages
         run: |
           Rscript -e 'install.packages("remotes")'
+          Rscript -e 'remotes::install_version("fitzRoy", version = "1.5.0")' # Replace with the latest version
           Rscript -e 'remotes::install_cran(c("lubridate", "tidyr", "dplyr", "zoo", "httr", "jsonlite", "glue"))'
 
       - name: Run R script
