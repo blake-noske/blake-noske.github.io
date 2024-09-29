@@ -62,7 +62,7 @@ jobs:
         # If you have a requirements.txt file, this will install the dependencies
         - name: Install Python dependencies
           run: |
-            pip install -r requirements.txt
+            pip install -r "Website code/requirements.txt"
           # If you're not using requirements.txt, you can also list the needed packages directly:
           # run: |
           #   pip install numpy pandas scikit-learn jupyter nbconvert
@@ -70,7 +70,7 @@ jobs:
         # Step 9: Run the model generation Python notebook
         - name: Run Model Generation Notebook
           run: |
-            jupyter nbconvert --to notebook --execute "Website code/model_generation.ipynb" --output model_generation.ipynb
+            jupyter nbconvert --to notebook --execute "Website code/model generation.ipynb" --output model generation.ipynb
   
         # Step 10: Run the prediction generation Python notebook
         - name: Run Prediction Generation Notebook
