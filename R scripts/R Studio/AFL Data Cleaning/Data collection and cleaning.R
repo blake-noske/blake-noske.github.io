@@ -741,6 +741,8 @@ if (max_year == season && max_round != "GF") {
   write.csv(current_team_form, "afl_team_form_cleaned.csv", row.names = TRUE)
   write.csv(Next_round, "afl_fixture_cleaned.csv", row.names = TRUE)
   setwd("C:/Users/blake/Desktop/AFL Odds/R scripts/R Studio/AFL Data Cleaning")
+} else {
+  print("no new game upcoming")
 }
 
 
