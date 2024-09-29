@@ -7,7 +7,7 @@ for (pkg in packages) {
   }
 }
 
-#library(fitzRoy)
+library(fitzRoy)
 library(lubridate)
 library(tidyr)
 library(dplyr)
