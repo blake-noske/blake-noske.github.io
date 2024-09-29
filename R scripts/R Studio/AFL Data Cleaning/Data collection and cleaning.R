@@ -44,7 +44,7 @@ for (i in 1:y) {
 max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
 max_year <- matches$round.year[length(matches$round.year)]
 
-if (max_year == season && max_year == "GF") {
+if (max_year == season && max_round == "GF") {
   stop()
 }
 round = matches$round.roundNumber[length(matches$round.roundNumber)]+1
@@ -184,12 +184,6 @@ matches <- matches %>%
 
 
 # Weighted average for each team ------------------------------------------
-
-round_replacement_values <- c("FW1" = 25, "SF" = 26,"PF" = 27,"GF" = 28)
-
-# Replace the old values with the new values
-round <- as.numeric(replace(round, round %in% names(round_replacement_values),
-                            round_replacement_values[as.character(round)]))
 
 Lineup <- fetch_lineup(season = season,round_number = round)
 Lineup <- Lineup[Lineup$position != "EMERG", ]
