@@ -20,6 +20,18 @@ import os
 import json
 
 
+# In[ ]:
+
+
+def set_wd():
+    # Get the GitHub Actions workspace directory
+    workspace = os.getenv('GITHUB_WORKSPACE', '.')
+    
+    # Set the working directory to the folder where the data resides
+    cleaned_data = os.path.join(workspace, 'cleaned data')
+    website_code = os.path.join(workspace, 'Website code')
+
+
 # In[2]:
 
 
@@ -42,14 +54,14 @@ def round_decimals_up(number:float, decimals:int=2):
 
 
 def load_data():
-    os.chdir('C:\\Users\\blake\\Desktop\\AFL Odds\\cleaned data')
+    os.chdir(cleaned_data)
     match_results = pd.read_csv('afl_match_results_cleaned.csv')
     team_stats = pd.read_csv('afl_team_stats_cleaned.csv')
     win_streaks = pd.read_csv('afl_team_streaks_cleaned.csv',index_col=0)
     venue_streaks = pd.read_csv('afl_venue_streaks_cleaned.csv',index_col=0)
     team_form = pd.read_csv('afl_team_form_cleaned.csv',index_col=0)
     fixture = pd.read_csv('afl_fixture_cleaned.csv',index_col=0)
-    os.chdir('C:\\Users\\blake\\Desktop\\AFL Odds\\Website code')
+    os.chdir(website_code)
     return match_results,team_stats,win_streaks,venue_streaks,team_form,fixture
 
 
@@ -187,6 +199,7 @@ def output_predictions_json():
 
 
 if __name__ == '__main__':
+    set_wd()
     weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
     # Create a dictionary where all categories are 0
     weather_dict = {category: 0 for category in weather_categories}

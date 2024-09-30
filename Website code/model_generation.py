@@ -43,14 +43,26 @@ from IPython.display import display, clear_output
 warnings.filterwarnings('ignore')
 
 
+# In[8]:
+
+
+def set_wd():
+    # Get the GitHub Actions workspace directory
+    workspace = os.getenv('GITHUB_WORKSPACE', '.')
+    
+    # Set the working directory to the folder where the data resides
+    cleaned_data = os.path.join(workspace, 'cleaned data')
+    website_code = os.path.join(workspace, 'Website code')
+
+
 # In[3]:
 
 
 def load_dataset():
     # Load the dataset
-    os.chdir('C:\\Users\\blake\\Desktop\\AFL Odds\\cleaned data')
+    os.chdir(cleaned_data)
     match_results = pd.read_csv('afl_match_results_cleaned.csv')
-    os.chdir('C:\\Users\\blake\\Desktop\\AFL Odds\\Website code')
+    os.chdir(website_code)
     
     # Define the features and the target variable
     weather_dummies = pd.get_dummies(match_results['weather.weatherType'])
@@ -417,6 +429,7 @@ def save_models(encoder,preprocessor,average_accuracy,rf_model,xgb_model,nn_mode
 
 
 if __name__ == '__main__':
+    set_wd()
     encoder,preprocessor,X_train,y_train,X,y = load_dataset()
     average_accuracy, rf_model, xgb_model = train_model(X_train, y_train)    
     nn_model_full, meta_model_full = final_models(X,y)
