@@ -151,7 +151,7 @@ stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
 tensorboard @ file:///C:/Users/builder/adipietro/mc3/tf210/conda-bld/tensorboard_1669760968711/work/tensorboard-2.10.0-py3-none-any.whl
 tensorboard-data-server @ file:///C:/b/abs_2fhvpo862s/croot/tensorboard-data-server_1670853600144/work/tensorboard_data_server-0.6.1-py3-none-any.whl
 tensorboard-plugin-wit @ file:///C:/tf/b/tensorboard-plugin-wit_1660162132996/work/tensorboard_plugin_wit-1.8.1-py3-none-any.whl
-tensorflow==2.10.0
+tensorflow>=2.12.1
 tensorflow-estimator @ file:///C:/Users/builder/adipietro/mc3/tf210/conda-bld/tensorflow-estimator_1669761460695/work/tensorflow_estimator-2.10.0-py2.py3-none-any.whl
 termcolor @ file:///C:/b/abs_16qe7jhw7n/croot/termcolor_1668084642458/work
 terminado @ file:///C:/b/abs_25nakickad/croot/terminado_1671751845491/work
