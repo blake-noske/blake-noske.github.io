@@ -74,9 +74,9 @@ jobs:
         # Step 9: Run the model generation Python notebook
         - name: Run Model Generation Notebook
           run: |
-            python model_generation.py
+            python "Website code/model_generation.py"
   
         # Step 10: Run the prediction generation Python notebook
         - name: Run Prediction Generation Notebook
           run: |
-            python prediction_function.py
+            python "Website code/prediction_function.py"
