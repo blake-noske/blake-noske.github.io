@@ -80,3 +80,14 @@ jobs:
         - name: Run Prediction Generation Notebook
           run: |
             python "Website code/prediction_function.py"
+
+        # Step 11: Commit and push changes back to the repository
+        - name: Commit and push changes
+          run: |
+            git config --local user.email "actions@github.com"
+            git config --local user.name "GitHub Actions"
+            git add .
+            git commit -m "Update predictions.json"
+            git push
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
