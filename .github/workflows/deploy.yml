@@ -1,9 +1,10 @@
 name: Deploy Website Code to GitHub Pages
 
 on:
-  push:
-    branches:
-      - prod  # Only triggers when changes are pushed to the prod branch
+  workflow_run:
+    workflows: ["Generate Predictions"]  # Name of the workflow to wait for
+    types:
+      - completed  # Trigger only when the workflow completes
   workflow_dispatch:
 
 jobs:
