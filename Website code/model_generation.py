@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
@@ -43,7 +43,7 @@ from IPython.display import display, clear_output
 warnings.filterwarnings('ignore')
 
 
-# In[8]:
+# In[5]:
 
 
 def set_wd():
@@ -53,6 +53,7 @@ def set_wd():
     # Set the working directory to the folder where the data resides
     cleaned_data = os.path.join(workspace, 'cleaned data')
     website_code = os.path.join(workspace, 'Website code')
+    return cleaned_data,website_code
 
 
 # In[3]:
@@ -425,11 +426,11 @@ def save_models(encoder,preprocessor,average_accuracy,rf_model,xgb_model,nn_mode
     joblib.dump(meta_model_full, 'meta_model.pkl')
 
 
-# In[7]:
+# In[6]:
 
 
 if __name__ == '__main__':
-    set_wd()
+    cleaned_data,website_code=set_wd()
     encoder,preprocessor,X_train,y_train,X,y = load_dataset()
     average_accuracy, rf_model, xgb_model = train_model(X_train, y_train)    
     nn_model_full, meta_model_full = final_models(X,y)

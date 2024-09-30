@@ -30,6 +30,7 @@ def set_wd():
     # Set the working directory to the folder where the data resides
     cleaned_data = os.path.join(workspace, 'cleaned data')
     website_code = os.path.join(workspace, 'Website code')
+    return cleaned_data,website_code
 
 
 # In[2]:
@@ -199,7 +200,7 @@ def output_predictions_json():
 
 
 if __name__ == '__main__':
-    set_wd()
+    cleaned_data,website_code=set_wd()
     weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
     # Create a dictionary where all categories are 0
     weather_dict = {category: 0 for category in weather_categories}
