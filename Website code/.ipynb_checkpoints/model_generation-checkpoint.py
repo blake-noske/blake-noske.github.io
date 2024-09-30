@@ -89,200 +89,176 @@ def load_dataset():
 
 
 # ### Run at beginning of season
+# TimeSeriesSplit for time-aware cross-validation
+tscv = TimeSeriesSplit(n_splits=3)
 
-# In[ ]:
-
-
-# # TimeSeriesSplit for time-aware cross-validation
-# tscv = TimeSeriesSplit(n_splits=3)
-
-# # Function to create the Keras model
-# def create_model(optimizer='adam', dropout_rate=0.3, neurons=64, learn_rate=0.01):
-#     model = Sequential([
-#         Dense(neurons, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001), input_dim=X_train.shape[1]),
-#         BatchNormalization(),
-#         Dropout(dropout_rate),
-#         Dense(32, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001)),
-#         BatchNormalization(),
-#         Dropout(dropout_rate),
-#         Dense(16, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.01)),
-#         BatchNormalization(),
-#         Dropout(dropout_rate),
-#         Dense(5, kernel_initializer='he_uniform', activation='softmax')
-#     ])
-#     model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=learn_rate, name=optimizer), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-#     return model
+# Function to create the Keras model
+def create_model(optimizer='adam', dropout_rate=0.3, neurons=64, learn_rate=0.01):
+    model = Sequential([
+        Dense(neurons, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001), input_dim=X_train.shape[1]),
+        BatchNormalization(),
+        Dropout(dropout_rate),
+        Dense(32, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001)),
+        BatchNormalization(),
+        Dropout(dropout_rate),
+        Dense(16, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.01)),
+        BatchNormalization(),
+        Dropout(dropout_rate),
+        Dense(5, kernel_initializer='he_uniform', activation='softmax')
+    ])
+    model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=learn_rate, name=optimizer), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    return model
 
 
-# # Example: Cross-validate Neural Network (Keras) base model
-# model = KerasClassifier(build_fn=create_model, verbose=0)
+# Example: Cross-validate Neural Network (Keras) base model
+model = KerasClassifier(build_fn=create_model, verbose=0)
 
-# # Define the grid of hyperparameters to search
-# nn_param_grid = {
-#     'batch_size': [32, 64, 128],
-#     'epochs': [50],
-#     'optimizer': ['adam', 'sgd'],
-#     'dropout_rate': [0.2, 0.3, 0.5],
-#     'neurons': [32, 64, 128],
-#     'learn_rate': [0.001, 0.01, 0.1]
-# }
+# Define the grid of hyperparameters to search
+nn_param_grid = {
+    'batch_size': [32, 64, 128],
+    'epochs': [50],
+    'optimizer': ['adam', 'sgd'],
+    'dropout_rate': [0.2, 0.3, 0.5],
+    'neurons': [32, 64, 128],
+    'learn_rate': [0.001, 0.01, 0.1]
+}
 
-# # Initialize GridSearchCV
-# grid_search_nn = GridSearchCV(
-#     estimator=model,
-#     param_grid=nn_param_grid,
-#     cv=tscv,
-#     scoring='accuracy',
-#     n_jobs=-1
-# )
+# Initialize GridSearchCV
+grid_search_nn = GridSearchCV(
+    estimator=model,
+    param_grid=nn_param_grid,
+    cv=tscv,
+    scoring='accuracy',
+    n_jobs=-1
+)
 
-# # Fit the model using GridSearchCV
-# grid_search_nn.fit(X_train, y_train)
+# Fit the model using GridSearchCV
+grid_search_nn.fit(X_train, y_train)
 
-# # Best Neural Network model
-# best_nn_model = grid_search_nn.best_estimator_
-# print(f"Best NN params: {grid_search_nn.best_params_}")
-# print(f"Best NN accuracy: {grid_search_nn.best_score_}")
+# Best Neural Network model
+best_nn_model = grid_search_nn.best_estimator_
+print(f"Best NN params: {grid_search_nn.best_params_}")
+print(f"Best NN accuracy: {grid_search_nn.best_score_}")# Example: Cross-validate Random Forest base model
+rf_model = RandomForestClassifier()
 
+rf_param_grid = {
+    'n_estimators': [100, 200],
+    'max_depth': [10, 20, None],
+    'min_samples_split': [2, 5, 10]
+}
 
-# In[ ]:
+grid_search_rf = GridSearchCV(
+    estimator=rf_model,
+    param_grid=rf_param_grid,
+    cv=tscv,
+    scoring='accuracy',
+    verbose=1,
+    n_jobs=-1
+)
 
+grid_search_rf.fit(X_train, y_train)
 
-# # Example: Cross-validate Random Forest base model
-# rf_model = RandomForestClassifier()
+# Best Random Forest model
+best_rf_model = grid_search_rf.best_estimator_
+print(f"Best RF params: {grid_search_rf.best_params_}")
+print(f"Best RF accuracy: {grid_search_rf.best_score_}")# Define the XGBoost model
+xgb_model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
 
-# rf_param_grid = {
-#     'n_estimators': [100, 200],
-#     'max_depth': [10, 20, None],
-#     'min_samples_split': [2, 5, 10]
-# }
+# Define the hyperparameters to tune
+xgb_param_grid = {
+    'n_estimators': [100, 200],
+    'max_depth': [3, 6, 9],
+    'learning_rate': [0.01, 0.1, 0.2],
+    'subsample': [0.8, 1.0],
+    'colsample_bytree': [0.8, 1.0]
+}
 
-# grid_search_rf = GridSearchCV(
-#     estimator=rf_model,
-#     param_grid=rf_param_grid,
-#     cv=tscv,
-#     scoring='accuracy',
-#     verbose=1,
-#     n_jobs=-1
-# )
+# Grid search for hyperparameter tuning
+grid_search_xgb = GridSearchCV(
+    estimator=xgb_model,
+    param_grid=xgb_param_grid,
+    cv=tscv,
+    scoring='accuracy',
+    verbose=1,
+    n_jobs=-1
+)
 
-# grid_search_rf.fit(X_train, y_train)
+# Fit the grid search
+grid_search_xgb.fit(X_train, y_train)
 
-# # Best Random Forest model
-# best_rf_model = grid_search_rf.best_estimator_
-# print(f"Best RF params: {grid_search_rf.best_params_}")
-# print(f"Best RF accuracy: {grid_search_rf.best_score_}")
+# Best XGBoost model
+best_xgb_model = grid_search_xgb.best_estimator_
+print(f"Best XGBoost params: {grid_search_xgb.best_params_}")
+print(f"Best XGBoost accuracy: {grid_search_xgb.best_score_}")# Function to create the Keras model
+def create_model(optimizer='adam', dropout_rate=0.3, neurons=64, learn_rate=0.01):
+    model = Sequential([
+        Dense(128, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001), input_dim=X_train.shape[1]),
+        BatchNormalization(),
+        Dropout(0.5),
+        Dense(32, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001)),
+        BatchNormalization(),
+        Dropout(0.5),
+        Dense(16, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.01)),
+        BatchNormalization(),
+        Dropout(0.5),
+        Dense(5, kernel_initializer='he_uniform', activation='softmax')
+    ])
+    model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.1, name='adam'), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    return model
 
+# Example: Cross-validate Neural Network (Keras) base model
+model = KerasClassifier(build_fn=create_model, verbose=0)
 
-# In[ ]:
+# Initialize base models
+nn_model = KerasClassifier(build_fn=lambda: create_model(X_train.shape[1]), epochs=100, batch_size=32, verbose=0)
+rf_model = RandomForestClassifier(n_estimators=100, max_depth=20, min_samples_split=5)
+xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss', colsample_bytree=0.8,
+                          learning_rate=0.2, max_depth=3, n_estimators=100, subsample=0.8)
 
-
-# # Define the XGBoost model
-# xgb_model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
-
-# # Define the hyperparameters to tune
-# xgb_param_grid = {
-#     'n_estimators': [100, 200],
-#     'max_depth': [3, 6, 9],
-#     'learning_rate': [0.01, 0.1, 0.2],
-#     'subsample': [0.8, 1.0],
-#     'colsample_bytree': [0.8, 1.0]
-# }
-
-# # Grid search for hyperparameter tuning
-# grid_search_xgb = GridSearchCV(
-#     estimator=xgb_model,
-#     param_grid=xgb_param_grid,
-#     cv=tscv,
-#     scoring='accuracy',
-#     verbose=1,
-#     n_jobs=-1
-# )
-
-# # Fit the grid search
-# grid_search_xgb.fit(X_train, y_train)
-
-# # Best XGBoost model
-# best_xgb_model = grid_search_xgb.best_estimator_
-# print(f"Best XGBoost params: {grid_search_xgb.best_params_}")
-# print(f"Best XGBoost accuracy: {grid_search_xgb.best_score_}")
-
-
-# In[ ]:
-
-
-# # Function to create the Keras model
-# def create_model(optimizer='adam', dropout_rate=0.3, neurons=64, learn_rate=0.01):
-#     model = Sequential([
-#         Dense(128, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001), input_dim=X_train.shape[1]),
-#         BatchNormalization(),
-#         Dropout(0.5),
-#         Dense(32, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.001)),
-#         BatchNormalization(),
-#         Dropout(0.5),
-#         Dense(16, kernel_initializer='he_uniform', activation='relu', kernel_regularizer=l2(0.01)),
-#         BatchNormalization(),
-#         Dropout(0.5),
-#         Dense(5, kernel_initializer='he_uniform', activation='softmax')
-#     ])
-#     model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.1, name='adam'), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-#     return model
-
-# # Example: Cross-validate Neural Network (Keras) base model
-# model = KerasClassifier(build_fn=create_model, verbose=0)
-
-# # Initialize base models
-# nn_model = KerasClassifier(build_fn=lambda: create_model(X_train.shape[1]), epochs=100, batch_size=32, verbose=0)
-# rf_model = RandomForestClassifier(n_estimators=100, max_depth=20, min_samples_split=5)
-# xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss', colsample_bytree=0.8,
-#                           learning_rate=0.2, max_depth=3, n_estimators=100, subsample=0.8)
-
-# # Fit the base models
-# nn_model.fit(X_train, y_train)
-# rf_model.fit(X_train, y_train)
-# xgb_model.fit(X_train, y_train)
+# Fit the base models
+nn_model.fit(X_train, y_train)
+rf_model.fit(X_train, y_train)
+xgb_model.fit(X_train, y_train)
 
 
-# rf_predictions_train = rf_model.predict_proba(X_train)
-# xgb_predictions_train = xgb_model.predict_proba(X_train)
-# nn_predictions_train = nn_model.predict_proba(X_train)
+rf_predictions_train = rf_model.predict_proba(X_train)
+xgb_predictions_train = xgb_model.predict_proba(X_train)
+nn_predictions_train = nn_model.predict_proba(X_train)
 
-# meta_train_X = np.hstack([rf_predictions_train, xgb_predictions_train, nn_predictions_train])
-# meta_train_y = y_train  # Your training labels
+meta_train_X = np.hstack([rf_predictions_train, xgb_predictions_train, nn_predictions_train])
+meta_train_y = y_train  # Your training labels
 
-# meta_model = LogisticRegression()
+meta_model = LogisticRegression()
 
-# # Set up the TimeSeriesSplit for time-aware cross-validation
-# tscv = TimeSeriesSplit(n_splits=5)
+# Set up the TimeSeriesSplit for time-aware cross-validation
+tscv = TimeSeriesSplit(n_splits=5)
 
-# # Define the hyperparameters to tune for Logistic Regression
-# param_grid = {
-#     'C': [0.01, 0.1, 1, 10, 100],  # Regularization strength
-#     'solver': ['liblinear', 'lbfgs'],  # Different solvers for logistic regression
-#     'max_iter': [100, 200]  # Maximum number of iterations
-# }
+# Define the hyperparameters to tune for Logistic Regression
+param_grid = {
+    'C': [0.01, 0.1, 1, 10, 100],  # Regularization strength
+    'solver': ['liblinear', 'lbfgs'],  # Different solvers for logistic regression
+    'max_iter': [100, 200]  # Maximum number of iterations
+}
 
-# # Set up GridSearchCV to find the best hyperparameters
-# grid_search = GridSearchCV(
-#     estimator=meta_model,
-#     param_grid=param_grid,
-#     cv=tscv,
-#     scoring='accuracy',  # You can change this to 'f1', 'roc_auc', etc., depending on your metric of choice
-#     verbose=1,
-#     n_jobs=-1  # Use all available cores for parallel processing
-# )
+# Set up GridSearchCV to find the best hyperparameters
+grid_search = GridSearchCV(
+    estimator=meta_model,
+    param_grid=param_grid,
+    cv=tscv,
+    scoring='accuracy',  # You can change this to 'f1', 'roc_auc', etc., depending on your metric of choice
+    verbose=1,
+    n_jobs=-1  # Use all available cores for parallel processing
+)
 
-# # Perform the hyperparameter search using GridSearchCV
-# grid_search.fit(meta_train_X, meta_train_y)
+# Perform the hyperparameter search using GridSearchCV
+grid_search.fit(meta_train_X, meta_train_y)
 
-# # Get the best meta-model from the grid search
-# best_meta_model = grid_search.best_estimator_
+# Get the best meta-model from the grid search
+best_meta_model = grid_search.best_estimator_
 
-# # Output the best hyperparameters
-# print(f"Best hyperparameters: {grid_search.best_params_}")
-# print(f"Best cross-validation accuracy: {grid_search.best_score_}")
-
-
+# Output the best hyperparameters
+print(f"Best hyperparameters: {grid_search.best_params_}")
+print(f"Best cross-validation accuracy: {grid_search.best_score_}")
 # ### Continue programming
 
 # In[4]:
