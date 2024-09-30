@@ -129,7 +129,6 @@ def make_prediction(home_team, away_team, venue, weather):
 
     with open('encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
-    os.chdir('C:\\Users\\blake\\Desktop\\AFL Odds\\Website code')
     
     features = extract_features(home_team, away_team, venue,weather)
 
