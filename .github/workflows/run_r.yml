@@ -44,12 +44,13 @@ jobs:
 
       # Step 6: Check for changes
       - name: Check for changes
+        id: check_changes
         run: |
-          git diff --quiet || exit 0  # Exit if no changes are found
+          git diff --quiet || echo "changes"
 
       # Step 7: Commit changes
       - name: Commit changes
-        if: success()
+        if: steps.check_changes.outputs.changes == 'changes'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -58,7 +59,7 @@ jobs:
 
       # Step 8: Push changes
       - name: Push changes
-        if: success()
+        if: steps.check_changes.outputs.changes == 'changes'
         run: |
           git push
         env:
