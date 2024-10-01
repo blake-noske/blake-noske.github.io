@@ -161,7 +161,6 @@ tomli
 tornado
 tqdm
 traitlets
-typing_extensions==4.6.0
 tzdata
 unicodedata2
 urllib3
