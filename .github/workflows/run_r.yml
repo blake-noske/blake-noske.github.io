@@ -42,11 +42,12 @@ jobs:
         run: |
           Rscript "R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R"  # Adjust the path if necessary
 
-      # Step 6: Commit and push changes back to the repository
+      # Step 6: Check for changes
       - name: Check for changes
         run: |
           git diff --quiet || exit 0  # Exit if no changes are found
-          
+
+      # Step 7: Commit changes
       - name: Commit changes
         if: success()
         run: |
@@ -55,8 +56,10 @@ jobs:
           git add .
           git commit -m "clean data"
 
+      # Step 8: Push changes
       - name: Push changes
         if: success()
+        run: |
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
