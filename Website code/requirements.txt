@@ -150,7 +150,7 @@ stack-data
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
-tensorflow=2.12.1
+tensorflow==2.12.1
 tensorflow-estimator
 termcolor
 terminado
