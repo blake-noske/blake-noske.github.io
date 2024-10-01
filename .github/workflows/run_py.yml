@@ -1,3 +1,12 @@
+name: Generate Predictions
+
+on:
+  workflow_run:
+    workflows: ["Clean Data"]  # Name of the workflow to wait for
+    types:
+      - completed  # Trigger only when the workflow completes
+  workflow_dispatch:
+
 run_python_notebooks:
       runs-on: ubuntu-latest
   
