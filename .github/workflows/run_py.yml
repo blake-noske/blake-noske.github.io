@@ -1,0 +1,49 @@
+run_python_notebooks:
+      runs-on: ubuntu-latest
+  
+      needs: run_r_script  # This ensures that Python jobs run after the R job is completed
+  
+      steps:
+        # Step 6: Checkout repository again in this job
+        - name: Checkout repository
+          uses: actions/checkout@v3
+  
+        # Step 7: Setup Python environment
+        - name: Setup Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.10.13'  # Replace with your preferred version if needed
+  
+        # Step 8: Install Python dependencies
+        - name: Upgrade pip
+          run: |
+            python -m pip install --upgrade pip
+
+      # If you have a requirements.txt file, this will install the dependencies
+        - name: Install Python dependencies
+          run: |
+            pip install -r "Website code/requirements.txt"
+          # If you're not using requirements.txt, you can also list the needed packages directly:
+          # run: |
+          #   pip install numpy pandas scikit-learn jupyter nbconvert
+  
+        # Step 9: Run the model generation Python notebook
+        - name: Run Model Generation Notebook
+          run: |
+            python "Website code/model_generation.py"
+  
+        # Step 10: Run the prediction generation Python notebook
+        - name: Run Prediction Generation Notebook
+          run: |
+            python "Website code/prediction_function.py"
+
+        # Step 11: Commit and push changes back to the repository
+        - name: Commit and push changes
+          run: |
+            git config --local user.email "actions@github.com"
+            git config --local user.name "GitHub Actions"
+            git add .
+            git commit -m "Update predictions.json"
+            git push
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
