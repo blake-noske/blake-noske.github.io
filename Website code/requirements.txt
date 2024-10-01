@@ -147,6 +147,7 @@ slicer==0.0.8
 sniffio
 soupsieve
 stack-data
+typing_extensions==4.4.0
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
@@ -161,7 +162,6 @@ tomli
 tornado
 tqdm
 traitlets
-typing_extensions==4.4.0
 tzdata
 unicodedata2
 urllib3
