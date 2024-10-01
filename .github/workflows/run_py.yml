@@ -29,10 +29,8 @@ jobs:
 
         - name: Install Python dependencies
           run: |
+            pip install --upgrade tensorflow
             pip install -r "Website code/requirements.txt"
-          # If you're not using requirements.txt, you can also list the needed packages directly:
-          # run: |
-          #   pip install numpy pandas scikit-learn jupyter nbconvert
   
         # Step 4: Run the model generation Python notebook
         - name: Run Model Generation Notebook
