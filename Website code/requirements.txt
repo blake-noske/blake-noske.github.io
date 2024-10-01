@@ -109,7 +109,7 @@ platformdirs
 ply==3.11
 prometheus-client
 prompt-toolkit
-protobuf<3.20
+protobuf==3.20.3
 psutil
 pure-eval
 pyasn1
@@ -150,7 +150,7 @@ stack-data
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
-tensorflow==2.10.0
+tensorflow==2.12.1
 tensorflow-estimator
 termcolor
 terminado
@@ -161,7 +161,7 @@ tomli
 tornado
 tqdm
 traitlets
-typing_extensions
+typing_extensions==4.5.0
 tzdata
 unicodedata2
 urllib3
