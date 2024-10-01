@@ -1,4 +1,4 @@
-name: Generate Predictions
+name: Clean Data
 
 # Schedule: Every day to line up with final team lists
 on:
