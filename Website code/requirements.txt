@@ -119,7 +119,7 @@ Pygments
 PyJWT
 pyOpenSSL
 pyparsing
-PyQt5==5.15.10
+PyQt5==5.15.11
 PyQt5-sip
 PySocks
 python-dateutil
