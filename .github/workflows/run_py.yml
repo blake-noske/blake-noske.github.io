@@ -15,6 +15,15 @@ jobs:
         # Step 1: Checkout repository again in this job
         - name: Checkout repository
           uses: actions/checkout@v3
+
+        # Cache pip dependencies
+        - name: Cache pip dependencies
+          uses: actions/cache@v3
+          with:
+            path: ~/.cache/pip
+            key: ${{ runner.os }}-pip-${{ hashFiles('Website code/requirements.txt') }}
+            restore-keys: |
+              ${{ runner.os }}-pip-
   
         # Step 2: Setup Python environment
         - name: Setup Python
