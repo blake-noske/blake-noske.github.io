@@ -20,11 +20,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Cache R package library
-      - name: Cache R package library
+      # Step 2: Cache R packages
+      - name: Cache R packages
         uses: actions/cache@v3
         with:
-          path: ~/.R/library  # Adjust this path based on where your packages are installed
+          path: ~/.cache/R
           key: ${{ runner.os }}-R-${{ hashFiles('R scripts/R Studio/AFL Data Cleaning/Data collection and cleaning.R') }}
           restore-keys: |
             ${{ runner.os }}-R-
