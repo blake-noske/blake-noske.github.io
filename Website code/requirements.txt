@@ -113,7 +113,7 @@ protobuf==3.20.3
 psutil
 pure-eval
 pyasn1
-pyasn1-modules==0.2.8
+pyasn1-modules==0.4.1
 pycparser
 Pygments
 PyJWT
