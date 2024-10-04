@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "Website code/requirements.txt"  # Location of the requirements.txt file
+    directory: "/Website code"  # Location of the requirements.txt file
     schedule:
       interval: "daily"
