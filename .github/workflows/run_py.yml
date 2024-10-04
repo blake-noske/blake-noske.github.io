@@ -15,14 +15,23 @@ jobs:
         # Step 1: Checkout repository again in this job
         - name: Checkout repository
           uses: actions/checkout@v3
+
+        # Step 2: Cache pip dependencies
+        - name: Cache pip dependencies
+          uses: actions/cache@v3
+          with:
+            path: ~/.cache/pip
+            key: ${{ runner.os }}-pip-${{ hashFiles('Website code/requirements.txt') }}
+            restore-keys: |
+              ${{ runner.os }}-pip-
   
-        # Step 2: Setup Python environment
+        # Step 3: Setup Python environment
         - name: Setup Python
           uses: actions/setup-python@v4
           with:
             python-version: '3.10.13'  # Replace with your preferred version if needed
   
-        # Step 3: Install Python dependencies
+        # Step 4: Install Python dependencies
         - name: Upgrade pip
           run: |
             python -m pip install --upgrade pip
@@ -32,17 +41,17 @@ jobs:
             pip install --upgrade tensorflow
             pip install -r "Website code/requirements.txt"
   
-        # Step 4: Run the model generation Python notebook
+        # Step 5: Run the model generation Python notebook
         - name: Run Model Generation Notebook
           run: |
             python "Website code/model_generation.py"
   
-        # Step 5: Run the prediction generation Python notebook
+        # Step 6: Run the prediction generation Python notebook
         - name: Run Prediction Generation Notebook
           run: |
             python "Website code/prediction_function.py"
 
-        # Step 6: Commit and push changes back to the repository
+        # Step 7: Commit and push changes back to the repository
         - name: Commit and push changes
           run: |
             git config --local user.email "actions@github.com"

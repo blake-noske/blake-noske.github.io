@@ -1,15 +1,5 @@
 season = 2024
 
-
-packages <- c("fitzRoy", "lubridate", "tidyr", "dplyr", "zoo", "httr", "jsonlite", "glue")
-installed_packages <- rownames(installed.packages())
-
-for (pkg in packages) {
-  if (!pkg %in% installed_packages) {
-    install.packages(pkg)
-  }
-}
-
 library(fitzRoy)
 library(lubridate)
 library(tidyr)
