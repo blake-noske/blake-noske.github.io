@@ -109,7 +109,6 @@ platformdirs
 ply==3.11
 prometheus-client
 prompt-toolkit
-protobuf==5.28.2
 psutil
 pure-eval
 pyasn1
