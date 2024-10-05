@@ -83,7 +83,7 @@ MarkupSafe
 matplotlib==3.9.2
 matplotlib-inline
 mistune
-mkl-service==2.4.1
+mkl-service==2.4.0
 mkl_fft
 mkl_random
 multidict
@@ -109,16 +109,17 @@ platformdirs
 ply==3.11
 prometheus-client
 prompt-toolkit
+protobuf==3.20.3
 psutil
 pure-eval
 pyasn1
-pyasn1-modules==0.4.1
+pyasn1-modules==0.2.8
 pycparser
 Pygments
 PyJWT
 pyOpenSSL
 pyparsing
-PyQt5==5.15.11
+PyQt5==5.15.10
 PyQt5-sip
 PySocks
 python-dateutil
@@ -149,7 +150,7 @@ stack-data
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
-tensorflow==2.17.0
+tensorflow==2.12.1
 tensorflow-estimator
 termcolor
 terminado
