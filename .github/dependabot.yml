@@ -4,3 +4,4 @@ updates:
     directory: "/Website code"  # Location of the requirements.txt file
     schedule:
       interval: "daily"
+    base: "dev"  # Specify dev as the base branch for pull requests
