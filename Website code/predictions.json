@@ -3,63 +3,63 @@
         "Match": "Brisbane Lions vs Melbourne",
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
-        "Market": "$1.30",
-        "Probability": "77.12%"
+        "Market": "$1.31",
+        "Probability": "76.55%"
     },
     {
         "Match": "North Melbourne vs Footscray",
         "Venue": "Marvel",
         "Prediction": "North Melbourne 1-39",
-        "Market": "$1.58",
-        "Probability": "63.57%"
+        "Market": "$1.59",
+        "Probability": "63.03%"
     },
     {
         "Match": "Sydney vs Fremantle",
         "Venue": "S.C.G.",
         "Prediction": "Sydney 1-39",
-        "Market": "$2.13",
-        "Probability": "46.96%"
+        "Market": "$1.78",
+        "Probability": "56.30%"
     },
     {
         "Match": "Gold Coast vs Collingwood",
         "Venue": "People First Stadium",
         "Prediction": "Gold Coast 1-39",
-        "Market": "$1.39",
-        "Probability": "72.32%"
+        "Market": "$1.33",
+        "Probability": "75.69%"
     },
     {
         "Match": "Adelaide vs GWS",
         "Venue": "Adelaide Oval",
         "Prediction": "GWS 1-39",
-        "Market": "$1.35",
-        "Probability": "74.23%"
+        "Market": "$1.37",
+        "Probability": "73.38%"
     },
     {
         "Match": "Geelong vs Essendon",
         "Venue": "M.C.G.",
         "Prediction": "Essendon 1-39",
         "Market": "$1.31",
-        "Probability": "76.91%"
+        "Probability": "76.45%"
     },
     {
         "Match": "St Kilda vs Port Adelaide",
         "Venue": "Marvel",
         "Prediction": "St Kilda 1-39",
-        "Market": "$1.37",
-        "Probability": "73.37%"
+        "Market": "$1.33",
+        "Probability": "75.64%"
     },
     {
         "Match": "Richmond vs Carlton",
         "Venue": "M.C.G.",
         "Prediction": "Carlton 1-39",
         "Market": "$1.32",
-        "Probability": "76.30%"
+        "Probability": "75.93%"
     },
     {
         "Match": "West Coast vs Hawthorn",
         "Venue": "Optus Stadium",
         "Prediction": "Hawthorn 1-39",
-        "Market": "$1.37",
-        "Probability": "73.00%"
+        "Market": "$1.44",
+        "Probability": "69.84%"
     }
 ]
