@@ -1,5 +1,5 @@
 season = 2024
-round = 28
+round = 11
 
 # set weather replacement at start of year
 weather_replacements <- c(
