@@ -15,7 +15,7 @@
             color: #333;
             text-align: center;
         }
-        .predictions {
+        .predictions, .markdown-content {
             margin: 20px auto;
             max-width: 600px;
             background: white;
@@ -33,6 +33,9 @@
             border-bottom: 1px solid #ddd;
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
     <script>
         async function loadRound() {
             try {
@@ -78,11 +81,30 @@
             }
         }
 
-        window.onload = loadPredictions;
-    </script>
+        // Fetch and display Markdown content
+        async function loadMarkdown() {
+            const markdownContainer = document.getElementById('markdown-content');
+            try {
+                const response = await fetch('about.md'); // Replace with the actual Markdown file name
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const markdown = await response.text();
+                const htmlContent = marked(markdown);
+                markdownContainer.innerHTML = htmlContent;
+            } catch (error) {
+                console.error('Error fetching markdown content:', error);
+            }
+        }
+
+        window.onload = function() {
+            loadPredictions();
+            loadMarkdown();
+        };    </script>
 </head>
 <body>
 
     <h1>The ATM</h1>
+    <div id="markdown-content" class="markdown-content"></div>
     <div id="predictions"></div></body>
 </html>
