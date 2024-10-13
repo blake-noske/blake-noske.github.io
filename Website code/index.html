@@ -15,7 +15,7 @@
             color: #333;
             text-align: center;
         }
-        .predictions {
+        .predictions, .markdown-content {
             margin: 20px auto;
             max-width: 600px;
             background: white;
@@ -33,23 +33,29 @@
             border-bottom: 1px solid #ddd;
         }
     </style>
-    <script>
+
+    <!-- Load Marked.js as an ES module -->
+    <script type="module">
+        import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
+
+        // Function to load round information from Round.json
         async function loadRound() {
             try {
-                const response = await fetch('Round.json'); // Update with the actual filename if different
+                const response = await fetch('Round.json'); 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const roundData = await response.json();
-                return roundData[0].Round_Name; // Assuming your JSON structure has a "round" property
+                return roundData[0].Round_Name; 
             } catch (error) {
                 console.error('Error fetching round data:', error);
-                return 'Unknown Round'; // Fallback if there’s an error
+                return 'Unknown Round'; 
             }
         }
 
+        // Function to load predictions from predictions.json
         async function loadPredictions() {
-            const round = await loadRound(); // Fetch the round first
+            const round = await loadRound(); 
             const predictionsContainer = document.getElementById('predictions');
 
             // Update the header with the round number
@@ -69,7 +75,6 @@
                         <h3 class="match">${prediction.Match} at ${prediction.Venue}</h3>
                         <p>Result of ${prediction.Prediction} with a probability of ${prediction.Probability}</p>
                         <p>Look for markets offering a return greater than ${prediction.Market}</p>
-
                     `;
                     predictionsContainer.appendChild(predictionElement);
                 });
@@ -78,11 +83,38 @@
             }
         }
 
-        window.onload = loadPredictions;
+        // Function to load markdown content from about.md and render it as HTML
+        async function loadMarkdown() {
+            const markdownContainer = document.getElementById('markdown-content');
+            try {
+                const response = await fetch('about.md'); 
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const markdown = await response.text();
+
+                const htmlContent = marked(markdown);  // Convert markdown to HTML
+                markdownContainer.innerHTML = htmlContent;
+            } catch (error) {
+                console.error('Error fetching markdown content:', error);
+            }
+        }
+
+        // Load both predictions and markdown when the window loads
+        window.onload = function() {
+            loadPredictions();
+            loadMarkdown();
+        };
     </script>
 </head>
 <body>
-
     <h1>The ATM</h1>
-    <div id="predictions"></div></body>
+
+    <!-- Container for predictions -->
+    <div id="predictions" class="predictions"></div>
+
+    <!-- Container for markdown content -->
+    <div id="markdown-content" class="markdown-content"></div>
+
+</body>
 </html>
