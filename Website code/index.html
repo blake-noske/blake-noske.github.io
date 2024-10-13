@@ -15,7 +15,7 @@
             color: #333;
             text-align: center;
         }
-        .predictions, .markdown-content {
+        .predictions, .markdown-content, .markdown-content2 {
             margin: 20px auto;
             max-width: 600px;
             background: white;
@@ -100,21 +100,42 @@
             }
         }
 
+        // Function to load markdown content from liability.md and render it as HTML
+        async function loadMarkdown2() {
+            const markdownContainer = document.getElementById('markdown-content2');
+            try {
+                const response = await fetch('liability.md'); 
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const markdown = await response.text();
+
+                const htmlContent = marked(markdown);  // Convert markdown to HTML
+                markdownContainer.innerHTML = htmlContent;
+            } catch (error) {
+                console.error('Error fetching markdown content:', error);
+            }
+        }
+
         // Load both predictions and markdown when the window loads
         window.onload = function() {
             loadPredictions();
             loadMarkdown();
+            loadMarkdown2();
         };
     </script>
 </head>
 <body>
     <h1>The ATM</h1>
 
-    <!-- Container for predictions -->
-    <div id="predictions" class="predictions"></div>
-
     <!-- Container for markdown content -->
     <div id="markdown-content" class="markdown-content"></div>
 
+    <!-- Container for predictions -->
+    <div id="predictions" class="predictions"></div>
+
+    <!-- Container for markdown content2 -->
+    <div id="markdown-content2" class="markdown-content2"></div>
+    
 </body>
 </html>
