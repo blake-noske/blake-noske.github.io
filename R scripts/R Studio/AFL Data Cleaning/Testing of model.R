@@ -1,5 +1,5 @@
 season = 2024
-round = 28
+round = 5
 
 # set weather replacement at start of year
 weather_replacements <- c(
@@ -659,14 +659,14 @@ matches_filtered <- matches %>%
          Home.Win.Streak, weather.weatherType)
 matches_filtered <- na.omit(matches_filtered)
 
-setwd("C:/Users/blake/Desktop/AFL Odds/cleaned data")
+setwd("C:/Users/blake/Desktop/AFL Odds/Testing and Analysis/2024 cleaned data")
 #Export cleaned data set to CSV or another format for Python
-write.csv(matches_filtered, "afl_match_results_cleaned.csv", row.names = FALSE)
-write.csv(new_team_stats, "afl_team_stats_cleaned.csv", row.names = FALSE)
-write.csv(current_team_streaks, "afl_team_streaks_cleaned.csv", row.names = TRUE)
-write.csv(current_venue_streaks, "afl_venue_streaks_cleaned.csv", row.names = TRUE)
-write.csv(current_team_form, "afl_team_form_cleaned.csv", row.names = TRUE)
-write.csv(Next_round, "afl_fixture_cleaned.csv", row.names = TRUE)
+write.csv(matches_filtered, glue('{season} {round} afl_match_results_cleaned.csv'), row.names = FALSE)
+write.csv(new_team_stats, glue('{season} {round} afl_team_stats_cleaned.csv'), row.names = FALSE)
+write.csv(current_team_streaks, glue('{season} {round} afl_team_streaks_cleaned.csv'), row.names = TRUE)
+write.csv(current_venue_streaks, glue('{season} {round} afl_venue_streaks_cleaned.csv'), row.names = TRUE)
+write.csv(current_team_form, glue('{season} {round} afl_team_form_cleaned.csv'), row.names = TRUE)
+write.csv(Next_round, glue('{season} {round} afl_fixture_cleaned.csv'), row.names = TRUE)
 setwd("C:/Users/blake/Desktop/AFL Odds/R scripts/R Studio/AFL Data Cleaning")
 
 
