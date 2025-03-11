@@ -1,0 +1,8 @@
+"","round.name","utcStartTime","local_time","home.team.name","away.team.name","venue.name","venue.location","venue.timezone","match.utcStartTime","match.name","Next_round_weather"
+"1","Round 12",2024-05-30 09:30:00,"2024-05-30 19:00:00","Port Adelaide","Carlton","Adelaide Oval","Adelaide","Australia/Adelaide","2024-05-30T09:30:00","Port Adelaide Vs Carlton","RAIN"
+"2","Round 12",2024-05-31 09:40:00,"2024-05-31 19:10:00","Collingwood","Footscray","Marvel","Melbourne","Australia/Melbourne","2024-05-31T09:40:00","Collingwood Vs Western Bulldogs","CLEAR_NIGHT"
+"3","Round 12",2024-06-01 03:45:00,"2024-06-01 13:15:00","Hawthorn","Adelaide","M.C.G.","Melbourne","Australia/Melbourne","2024-06-01T03:45:00","Hawthorn Vs Adelaide Crows","RAIN"
+"4","Round 12",2024-06-01 06:35:00,"2024-06-01 16:05:00","West Coast","St Kilda","Optus Stadium","Perth","Australia/Perth","2024-06-01T06:35:00","West Coast Eagles Vs St Kilda","RAIN"
+"5","Round 12",2024-06-01 09:30:00,"2024-06-01 19:00:00","Geelong","Richmond","GMHBA Stadium","Geelong","Australia/Melbourne","2024-06-01T09:30:00","Geelong Cats Vs Richmond","RAIN"
+"6","Round 12",2024-06-02 03:00:00,"2024-06-02 12:30:00","Melbourne","Fremantle","TIO Traeger Park","Alice Springs","Australia/Darwin","2024-06-02T03:00:00","Melbourne Vs Fremantle","SUNNY"
+"7","Round 12",2024-06-02 06:00:00,"2024-06-02 15:30:00","Gold Coast","Essendon","People First Stadium","Gold Coast","Australia/Brisbane","2024-06-02T06:00:00","Gold Coast SUNS Vs Essendon","RAIN"
