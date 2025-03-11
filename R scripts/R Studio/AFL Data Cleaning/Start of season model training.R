@@ -2,7 +2,7 @@
 
 season = 2024 # last season
 
-# set weather replacement at start of year based on line 65 and 66
+# set weather replacement at start of year based on line 52 and 53
 weather_replacements <- c(
   "WINDY_RAIN" = "RAIN",
   "MOSTLY_CLEAR" = "CLEAR_NIGHT"
@@ -49,8 +49,8 @@ matches <- matches %>%
     venue.name = recode(venue.name, !!!venue_name_replacements))
 
 matches$weather.weatherType[matches$venue.name == "Marvel"] <- "CLEAR_NIGHT"
-#unique(matches$weather.weatherType) Unhash at start of season
-#unique(matches[matches$round.year >= 2023, ]$weather.weatherType) Unhash at start of season
+#unique(matches$weather.weatherType) #Unhash at start of season
+#unique(matches[matches$round.year >= 2023, ]$weather.weatherType) #Unhash at start of season
 
 # Replace weather to reflect weather collected in last 2 years
 matches <- matches %>%
