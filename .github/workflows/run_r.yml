@@ -57,11 +57,17 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet || echo "changes"
+          git add -A  # Track all changes
+          if git diff --cached --quiet; then
+            echo "No changes detected."
+            echo "changes=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected."
+            echo "changes=true" >> $GITHUB_ENV
 
       # Step 9: Commit changes
       - name: Commit changes
-        if: steps.check_changes.outputs.changes == 'changes'
+        if: env.changes == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -70,7 +76,7 @@ jobs:
 
       # Step 10: Push changes
       - name: Push changes
-        if: steps.check_changes.outputs.changes == 'changes'
+        if: env.changes == 'true'
         run: |
           git push
         env:
