@@ -728,14 +728,13 @@ if (max_year == season && max_round != "GF") {
     #Export cleaned data set to CSV or another format for Python
     setwd(file.path(Sys.getenv("GITHUB_WORKSPACE"), "Website code"))
     write_json(round_name, "Round.json")
-    setwd(file.path(Sys.getenv("GITHUB_WORKSPACE"), "Website code"))
+    setwd(file.path(Sys.getenv("GITHUB_WORKSPACE"), "cleaned data"))
     write.csv(matches_filtered, "afl_match_results_cleaned.csv", row.names = FALSE)
     write.csv(new_team_stats, "afl_team_stats_cleaned.csv", row.names = FALSE)
     write.csv(current_team_streaks, "afl_team_streaks_cleaned.csv", row.names = TRUE)
     write.csv(current_venue_streaks, "afl_venue_streaks_cleaned.csv", row.names = TRUE)
     write.csv(current_team_form, "afl_team_form_cleaned.csv", row.names = TRUE)
     write.csv(Next_round, "afl_fixture_cleaned.csv", row.names = TRUE)
-    setwd(file.path(Sys.getenv("GITHUB_WORKSPACE"), "R scripts/R Studio/AFL Data Cleaning"))
   } else {"team lists not yet out"}
 } else {
   print("no new game upcoming")
