@@ -18,7 +18,7 @@ import os
 import json
 
 
-# In[ ]:
+# In[2]:
 
 
 def set_wd():
@@ -31,7 +31,7 @@ def set_wd():
     return cleaned_data,website_code
 
 
-# In[2]:
+# In[3]:
 
 
 def round_decimals_up(number:float, decimals:int=2):
@@ -49,7 +49,7 @@ def round_decimals_up(number:float, decimals:int=2):
     return math.ceil(number * factor) / factor
 
 
-# In[3]:
+# In[4]:
 
 
 def load_data():
@@ -60,11 +60,12 @@ def load_data():
     venue_streaks = pd.read_csv('afl_venue_streaks_cleaned.csv',index_col=0)
     team_form = pd.read_csv('afl_team_form_cleaned.csv',index_col=0)
     fixture = pd.read_csv('afl_fixture_cleaned.csv',index_col=0)
+    fixture = fixture[fixture['home.team.name'].isin(pd.unique(team_stats['Team'].values.ravel('K'))) & fixture['away.team.name'].isin(pd.unique(team_stats['Team'].values.ravel('K')))]
     os.chdir(website_code)
     return match_results,team_stats,win_streaks,venue_streaks,team_form,fixture
 
 
-# In[4]:
+# In[5]:
 
 
 def extract_features(home_team, away_team, venue,weather):
@@ -106,7 +107,7 @@ def extract_features(home_team, away_team, venue,weather):
     return features
 
 
-# In[5]:
+# In[6]:
 
 
 def make_prediction(home_team, away_team, venue, weather):
@@ -151,15 +152,15 @@ def make_prediction(home_team, away_team, venue, weather):
     return predicted_class,max_prob_percent,market
 
 
-# In[6]:
+# In[7]:
 
 
 def gen_predictions():
     preds = []
     for h,a,v,w in zip(list(fixture['home.team.name']),
-                                             list(fixture['away.team.name']),
-                                             list(fixture['venue.name']),
-                                             list(fixture['Next_round_weather'])):
+                       list(fixture['away.team.name']),
+                       list(fixture['venue.name']),
+                       list(fixture['Next_round_weather'])):
         (r,p,m)=make_prediction(h,a,v,w)
 
         if r == "BW":
@@ -179,21 +180,21 @@ def gen_predictions():
     return preds
 
 
-# In[7]:
+# In[8]:
 
 
 def output_predictions_json():
     # Prepare data for JSON
     output_data = p
     
-
+    os.chdir(website_code)
     # Save to JSON
     with open(f'predictions.json', 'w') as f:
         json.dump(output_data, f, indent=4)
     print(f'Predictions saved to predictions.json')
 
 
-# In[8]:
+# In[10]:
 
 
 if __name__ == '__main__':
@@ -206,4 +207,18 @@ if __name__ == '__main__':
 
     p = gen_predictions()
     output_predictions_json()
+
+
+# In[9]:
+
+
+# cleaned_data,website_code=["C:/Users/blake/Desktop/AFL Odds/cleaned data","C:/Users/blake/Desktop/AFL Odds/Website code"]
+# weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
+# # Create a dictionary where all categories are 0
+# weather_dict = {category: 0 for category in weather_categories}
+    
+# match_results, team_stats, win_streaks, venue_streaks, team_form, fixture = load_data()
+
+# p = gen_predictions()
+# output_predictions_json()
 
