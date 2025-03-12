@@ -7,18 +7,15 @@
 import warnings
 warnings.filterwarnings('ignore')
 
-import os
-import math
 import pandas as pd
 import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 import joblib
+import math
 import pickle
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import TimeSeriesSplit, GridSearchCV, train_test_split
-from sklearn.preprocessing import OneHotEncoder, StandardScaler, LabelEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import accuracy_score
+import os
+import json
 
 
 # In[2]:
@@ -72,6 +69,9 @@ def load_data():
 
 
 def extract_features(home_team, away_team, venue,weather):
+    with open('preprocessor.pkl', 'rb') as f:
+        preprocessor = pickle.load(f)
+        
     # Get the weighted average stats for home and away teams
     home_stats = team_stats[team_stats['Team'] == home_team].iloc[:, 1:].values.flatten()
     away_stats = team_stats[team_stats['Team'] == away_team].iloc[:, 1:].values.flatten()
@@ -83,42 +83,73 @@ def extract_features(home_team, away_team, venue,weather):
     home_team_form = team_form.loc[team_form['Team'] == home_team, 'Current.Form'].values[0].flatten()
     away_team_form = team_form.loc[team_form['Team'] == home_team, 'Current.Form'].values[0].flatten()
     
+    weather_dict[weather] = 1
+    # Convert the dictionary to a DataFrame (single row)
+    weather_df = pd.DataFrame([weather_dict]).values.flatten()
+    
     # Combine all features into a single array
     features = np.concatenate([
     home_stats, home_team_form,
     away_stats, away_team_form,
     home_venue_streak,away_venue_streak,team_win_streak,
+    weather_df
     ])
-
-    df1 = pd.DataFrame([features])
-    df2 = pd.DataFrame([weather])
-    features=pd.concat([df1, df2], axis = 1)
 
     column_names = match_results.drop(columns=['match.homeTeam.name', 'match.awayTeam.name','venue.name','Margin','Result','weather.weatherType',
                                           'Home.Team.Venue.Win.Streak', 'Away.Team.Venue.Win.Streak','Home.Win.Streak']).columns  # Replace with actual feature names
-    column_names = column_names.append(pd.Index(['Home.Team.Venue.Win.Streak', 'Away.Team.Venue.Win.Streak','Home.Win.Streak'])).append(pd.Index(['weather.weatherType']))
-    
-    features.columns = column_names
+    column_names = column_names.append(pd.Index(['Home.Team.Venue.Win.Streak', 'Away.Team.Venue.Win.Streak','Home.Win.Streak'])).append(pd.Index(weather_categories))
+
+
+    new_data_df = pd.DataFrame(features.reshape(1, -1), columns=column_names)
+
+    features = preprocessor.transform(new_data_df)  # Normalize features
     
     return features
 
 
-# In[12]:
+# In[6]:
 
 
-def make_prediction(home_team, away_team, venue,weather):
+def make_prediction(home_team, away_team, venue, weather):
     with open('accuracy.pkl', 'rb') as f:
         a = pickle.load(f)
+
+    # Load RandomForest model
+    rf_model = joblib.load('rf_model.pkl')
+
+    # Load XGBoost model
+    xgb_model = joblib.load('xgb_model.pkl')
+
+    # Load the neural network model
+    nn_model_full = load_model('nn_model.h5')
+
+    # Load the meta-model (Logistic Regression)
+    meta_model_full = joblib.load('meta_model.pkl')
+
+    with open('encoder.pkl', 'rb') as f:
+        encoder = pickle.load(f)
+    
     features = extract_features(home_team, away_team, venue,weather)
-    pred_probs = model.predict_proba(features)  # Get the probability for each class
-    pred_class = np.argmax(pred_probs, axis=1)  # Class with the highest probability
-    pred_class = encoder.inverse_transform([pred_class])[0]
-    predicted_prob = np.max(pred_probs, axis=1)
-    acc = predicted_prob[0] * a
+
+    rf_predictions_new = rf_model.predict_proba(features)
+    xgb_predictions_new = xgb_model.predict_proba(features)
+    nn_predictions_new = nn_model_full.predict(features)
+
+    # Stack predictions to form meta-features
+    meta_features_new = np.hstack([rf_predictions_new, xgb_predictions_new, nn_predictions_new])
+
+    # Get final ensemble prediction
+    final_prediction = meta_model_full.predict_proba(meta_features_new)
+    
+    #prediction_probs = model.predict(features)[0]
+    predicted_class_index = np.argmax(final_prediction)
+    predicted_class = encoder.inverse_transform([predicted_class_index])[0]  # Decode the prediction
+    max_prob = final_prediction[0][predicted_class_index]  # Get the maximum probability and its corresponding class
+    acc = max_prob * a
     max_prob_percent = f"{acc * 100:.2f}%"
     market = f"{round_decimals_up(1 / acc,2):.2f}"
-    
-    return pred_class,max_prob_percent,market
+
+    return predicted_class,max_prob_percent,market
 
 
 # In[7]:
@@ -127,9 +158,9 @@ def make_prediction(home_team, away_team, venue,weather):
 def gen_predictions():
     preds = []
     for h,a,v,w in zip(list(fixture['home.team.name']),
-                                             list(fixture['away.team.name']),
-                                             list(fixture['venue.name']),
-                                             list(fixture['Next_round_weather'])):
+                       list(fixture['away.team.name']),
+                       list(fixture['venue.name']),
+                       list(fixture['Next_round_weather'])):
         (r,p,m)=make_prediction(h,a,v,w)
 
         if r == "BW":
@@ -163,16 +194,10 @@ def output_predictions_json():
     print(f'Predictions saved to predictions.json')
 
 
-# In[15]:
+# In[10]:
 
 
 if __name__ == '__main__':
-    with open('encoder.pkl', 'rb') as f:
-        encoder = pickle.load(f)
-    with open('preprocessor.pkl', 'rb') as f:
-        preprocessor = pickle.load(f)
-    model = joblib.load('knn_model.pkl')
-
     cleaned_data,website_code=set_wd()
     weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
     # Create a dictionary where all categories are 0
@@ -182,4 +207,18 @@ if __name__ == '__main__':
 
     p = gen_predictions()
     output_predictions_json()
+
+
+# In[9]:
+
+
+# cleaned_data,website_code=["C:/Users/blake/Desktop/AFL Odds/cleaned data","C:/Users/blake/Desktop/AFL Odds/Website code"]
+# weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
+# # Create a dictionary where all categories are 0
+# weather_dict = {category: 0 for category in weather_categories}
+    
+# match_results, team_stats, win_streaks, venue_streaks, team_form, fixture = load_data()
+
+# p = gen_predictions()
+# output_predictions_json()
 
