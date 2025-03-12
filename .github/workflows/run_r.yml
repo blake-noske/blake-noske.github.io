@@ -64,6 +64,7 @@ jobs:
           else
             echo "Changes detected."
             echo "changes=true" >> $GITHUB_ENV
+          fi  # Closing the if statement
 
       # Step 9: Commit changes
       - name: Commit changes
