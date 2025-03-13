@@ -168,6 +168,7 @@ def output_predictions_json():
 
 if __name__ == '__main__':
     cleaned_data,website_code=set_wd()
+    os.chdir(website_code)
     with open('encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
     with open('preprocessor.pkl', 'rb') as f:
