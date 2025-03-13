@@ -167,13 +167,13 @@ def output_predictions_json():
 
 
 if __name__ == '__main__':
+    cleaned_data,website_code=set_wd()
     with open('encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
     with open('preprocessor.pkl', 'rb') as f:
         preprocessor = pickle.load(f)
     model = joblib.load('knn_model.pkl')
 
-    cleaned_data,website_code=set_wd()
     weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
     # Create a dictionary where all categories are 0
     weather_dict = {category: 0 for category in weather_categories}
