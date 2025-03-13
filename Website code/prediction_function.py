@@ -173,7 +173,7 @@ if __name__ == '__main__':
         encoder = pickle.load(f)
     with open('preprocessor.pkl', 'rb') as f:
         preprocessor = pickle.load(f)
-    model = joblib.load('knn_model.pkl')
+    model = joblib.load('kNN_model.pkl')
 
     weather_categories = ['CLEAR_NIGHT','MOSTLY_SUNNY','OVERCAST','RAIN','SUNNY','THUNDERSTORMS','WINDY']  # Add all weather types you used
     # Create a dictionary where all categories are 0
