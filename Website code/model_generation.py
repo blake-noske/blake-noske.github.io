@@ -121,6 +121,7 @@ def train_model(X_train, y_train):
 
 
 def save_models(encoder,preprocessor,average_accuracy,final_model):
+    os.chdir(website_code)
     with open('encoder.pkl', 'wb') as f:
         pickle.dump(encoder, f)
     with open('preprocessor.pkl', 'wb') as f:
