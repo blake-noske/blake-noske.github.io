@@ -35,13 +35,18 @@ max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
 max_year <- as.numeric(matches$round.year[length(matches$round.year)])
 
 if (max_year == season && max_round != "GF") {
-  round = matches$round.roundNumber[length(matches$round.roundNumber)]+1
+  Lineup <- fetch_lineup(season = season)
+  round = Lineup[Lineup$status != "CONCLUDED",]$round.roundNumber[1]
   
-  matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
-  matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
-  matches$venue.name <- replace_venues(matches$venue.name)
+  # Next Fixture ------------------------------------------------------------
   
+  Next_round <- fetch_fixture_afl(season = season,round_number = round)
   
+  Next_round$home.team.name <- replace_teams(Next_round$home.team.name)
+  Next_round$away.team.name <- replace_teams(Next_round$away.team.name)
+  Next_round$venue.name <- replace_venues(Next_round$venue.name)
+  
+  # Replace team names in Home.Team and Away.Team columns
   venue_name_replacements <- c(
     "Docklands" = "Marvel",
     "Sydney Showground" = "ENGIE Stadium",
@@ -56,6 +61,117 @@ if (max_year == season && max_round != "GF") {
     "Stadium Australia" = "Accor Stadium",
     "Summit Sports Park" = "Adelaide Hills"
   )
+  
+  Next_round <- Next_round %>%
+    mutate(
+      venue.name = recode(venue.name, !!!venue_name_replacements))
+  
+  Next_round$utcStartTime <- ymd_hms(Next_round$utcStartTime, tz = "UTC")
+  
+  # Convert the UTC times to local time
+  Next_round$local_time <- with_tz(Next_round$utcStartTime, tzone = Next_round$venue.timezone)
+  Next_round$local_time <- as.character(Next_round$local_time)
+  
+  round_name <- data.frame(
+    Round_Name = Next_round$round.name[1]
+  )
+  
+  Next_round <- Next_round %>%
+    select(round.name,utcStartTime,local_time,home.team.name,away.team.name,venue.name,venue.location,venue.timezone)
+  
+  
+  api_key <- "ed96e7c2f1850c8b5c4000dd5619e08c"
+  country <- "AU"  # Australia
+  Next_round_weather <- vector(length = length(Next_round$round.name))
+  for (i in c(1:length(Next_round$round.name))) {
+    game_day = substr(Next_round$utcStartTime[i],start = 1,stop = 10)
+    
+    if (game_day >= today()) {
+      city <- Next_round$venue.location[i]
+      
+      
+      # Construct the API URL with the city name and country code
+      url <- URLencode(paste0("http://api.openweathermap.org/data/2.5/forecast?q=", city, ",", country, "&appid=", api_key, "&units=metric"))
+      
+      # Make the API call
+      response <- GET(url)
+      
+      # Check the status code
+      if (status_code(response) == 200) {
+        # Parse the content of the response
+        forecast_data <- fromJSON(content(response, "text"))
+      } else {
+        print("Failed to retrieve data")
+      }  
+      
+      forecast_list <- forecast_data$list
+      
+      # Convert the forecast date and time to R's datetime format
+      forecast_list$dt_txt <- as.POSIXct(forecast_list$dt_txt, format="%Y-%m-%d %H:%M:%S", tz="UTC")
+      
+      # Filter for future dates
+      
+      game_day_forecast <- forecast_list[as.Date(forecast_list$dt_txt) == game_day, ]
+      
+      game_day_forecast$offset <- game_day_forecast$dt_txt - Next_round$utcStartTime[i]
+      
+      game_day_forecast_filtered <- game_day_forecast[game_day_forecast$offset > 0, ][1,]
+      wind_speed <- game_day_forecast_filtered[[5]][1][[1]]
+      forecast_basic <- game_day_forecast_filtered$weather[[1]][2][[1]]
+      forecast_adv <- game_day_forecast_filtered$weather[[1]][3][[1]]
+      
+      if (is.null(forecast_basic)==TRUE){
+        weather = "SUNNY"
+      }
+      if (forecast_basic == "Mist" ||
+          forecast_basic == "Smoke" ||
+          forecast_basic == "Haze" ||
+          forecast_basic == "Dust" ||
+          forecast_basic == "Fog" ||
+          forecast_basic == "Sand" ||
+          forecast_basic == "Ash") {
+        weather = "OVERCAST"
+      }
+      if (forecast_basic == "Clear") {
+        if (hour(Next_round$local_time[i]) < 17) {
+          weather = "SUNNY"
+        }
+        else weather = "CLEAR_NIGHT"
+      }
+      if (forecast_basic == "Clouds") {
+        if (forecast_adv == "broken clouds" || forecast_adv == "overcast clouds") {
+          weather = "OVERCAST"
+        } else if ((hour(Next_round$local_time[i]) < 17)) {
+          weather = "MOSTLY_SUNNY"
+        } else weather = "CLEAR_NIGHT"
+      }
+      if (wind_speed >= 8) {
+        weather = "WINDY"
+      }
+      if (forecast_basic == "Thunderstorm" || forecast_basic == "Squall" || forecast_basic == "Tornado") {
+        weather = "THUNDERSTORMS"
+      }
+      if (forecast_basic == "Drizzle" || forecast_basic == "Rain" || forecast_basic == "Snow") {
+        weather = "RAIN"
+      }
+      
+      if (Next_round$venue.name[i] == "Marvel") {
+        weather = "CLEAR_NIGHT"
+      }
+      
+      
+      Next_round_weather[i] <- weather
+    } else Next_round_weather[i] = as.character(matches %>% filter(ymd_hms(match.utcStartTime,tz="UTC") == Next_round$utcStartTime[i]) %>% select(weather.weatherType))
+    
+  }
+  
+  Next_round <- cbind(Next_round,Next_round_weather)
+  
+  matches <- matches[matches$match.date != matches[matches$round.year == max_year & matches$round.roundNumber == round,]$match.date,]
+  
+  matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
+  matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
+  matches$venue.name <- replace_venues(matches$venue.name)
   
   # Replace team names in Home.Team and Away.Team columns
   matches <- matches %>%
@@ -174,6 +290,7 @@ if (max_year == season && max_round != "GF") {
   # Weighted average for each team ------------------------------------------
   
   Lineup <- fetch_lineup(season = season,round_number = round)
+  
   if ('position' %in% names(Lineup)==TRUE) {
     Lineup <- Lineup[Lineup$position != "EMERG", ]
     Lineup$teamName <- replace_teams(Lineup$teamName)
@@ -600,120 +717,6 @@ if (max_year == season && max_round != "GF") {
     
     current_team_form <- current_team_form %>%
       arrange(Team)
-    
-    # Next Fixture ------------------------------------------------------------
-    
-    Next_round <- fetch_fixture_afl(season = season,round_number = round)
-    
-    Next_round$home.team.name <- replace_teams(Next_round$home.team.name)
-    Next_round$away.team.name <- replace_teams(Next_round$away.team.name)
-    Next_round$venue.name <- replace_venues(Next_round$venue.name)
-    
-    # Replace team names in Home.Team and Away.Team columns
-    Next_round <- Next_round %>%
-      mutate(
-        venue.name = recode(venue.name, !!!venue_name_replacements))
-    
-    Next_round$utcStartTime <- ymd_hms(Next_round$utcStartTime, tz = "UTC")
-    
-    # Convert the UTC times to local time
-    Next_round$local_time <- with_tz(Next_round$utcStartTime, tzone = Next_round$venue.timezone)
-    Next_round$local_time <- as.character(Next_round$local_time)
-    
-    round_name <- data.frame(
-      Round_Name = Next_round$round.name[1]
-    )
-    
-    Next_round <- Next_round %>%
-      select(round.name,utcStartTime,local_time,home.team.name,away.team.name,venue.name,venue.location,venue.timezone)
-    
-    
-    api_key <- "ed96e7c2f1850c8b5c4000dd5619e08c"
-    country <- "AU"  # Australia
-    Next_round_weather <- vector(length = length(Next_round$round.name))
-    for (i in c(1:length(Next_round$round.name))) {
-      game_day = substr(Next_round$utcStartTime[i],start = 1,stop = 10)
-      
-      if (game_day >= today()) {
-        city <- Next_round$venue.location[i]
-        
-        # Construct the API URL with the city name and country code
-        url <- paste0("http://api.openweathermap.org/data/2.5/forecast?q=", city, ",", country, "&appid=", api_key, "&units=metric")
-        
-        # Make the API call
-        response <- GET(url)
-        
-        # Check the status code
-        if (status_code(response) == 200) {
-          # Parse the content of the response
-          forecast_data <- fromJSON(content(response, "text"))
-        } else {
-          print("Failed to retrieve data")
-        }  
-        
-        forecast_list <- forecast_data$list
-        
-        # Convert the forecast date and time to R's datetime format
-        forecast_list$dt_txt <- as.POSIXct(forecast_list$dt_txt, format="%Y-%m-%d %H:%M:%S", tz="UTC")
-        
-        # Filter for future dates
-        
-        game_day_forecast <- forecast_list[as.Date(forecast_list$dt_txt) == game_day, ]
-        
-        game_day_forecast$offset <- game_day_forecast$dt_txt - Next_round$utcStartTime[i]
-        
-        game_day_forecast_filtered <- game_day_forecast[game_day_forecast$offset > 0, ][1,]
-        wind_speed <- game_day_forecast_filtered[[5]][1][[1]]
-        forecast_basic <- game_day_forecast_filtered$weather[[1]][2][[1]]
-        forecast_adv <- game_day_forecast_filtered$weather[[1]][3][[1]]
-        
-        if (is.null(forecast_basic)==TRUE){
-          weather = "SUNNY"
-        }
-        if (forecast_basic == "Mist" ||
-            forecast_basic == "Smoke" ||
-            forecast_basic == "Haze" ||
-            forecast_basic == "Dust" ||
-            forecast_basic == "Fog" ||
-            forecast_basic == "Sand" ||
-            forecast_basic == "Ash") {
-          weather = "OVERCAST"
-        }
-        if (forecast_basic == "Clear") {
-          if (hour(Next_round$local_time[i]) < 17) {
-            weather = "SUNNY"
-          }
-          else weather = "CLEAR_NIGHT"
-        }
-        if (forecast_basic == "Clouds") {
-          if (forecast_adv == "broken clouds" || forecast_adv == "overcast clouds") {
-            weather = "OVERCAST"
-          } else if ((hour(Next_round$local_time[i]) < 17)) {
-            weather = "MOSTLY_SUNNY"
-          } else weather = "CLEAR_NIGHT"
-        }
-        if (wind_speed >= 8) {
-          weather = "WINDY"
-        }
-        if (forecast_basic == "Thunderstorm" || forecast_basic == "Squall" || forecast_basic == "Tornado") {
-          weather = "THUNDERSTORMS"
-        }
-        if (forecast_basic == "Drizzle" || forecast_basic == "Rain" || forecast_basic == "Snow") {
-          weather = "RAIN"
-        }
-        
-        if (Next_round$venue.name[i] == "Marvel") {
-          weather = "CLEAR_NIGHT"
-        }
-        
-        
-        Next_round_weather[i] <- weather
-      } else Next_round_weather[i] = as.character(matches %>% filter(ymd_hms(match.utcStartTime,tz="UTC") == Next_round$utcStartTime[i]) %>% select(weather.weatherType))
-      
-    }
-    
-    Next_round <- cbind(Next_round,Next_round_weather)
-    
     
     # Export ------------------------------------------------------------------
     
