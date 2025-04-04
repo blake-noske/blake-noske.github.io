@@ -34,9 +34,12 @@ for (i in 1:y) {
 max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
 max_year <- as.numeric(matches$round.year[length(matches$round.year)])
 
+
 if (max_year == season && max_round != "GF") {
   Lineup <- fetch_lineup(season = season)
   round = Lineup[Lineup$status != "CONCLUDED",]$round.roundNumber[1]
+  
+  matches <- matches[matches$match.date != matches[matches$round.year == max_year & matches$round.roundNumber == round,]$match.date,]
   
   matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
   matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
@@ -603,6 +606,8 @@ if (max_year == season && max_round != "GF") {
     current_team_form <- current_team_form %>%
       arrange(Team)
     
+    
+    
     # Next Fixture ------------------------------------------------------------
     
     Next_round <- fetch_fixture_afl(season = season,round_number = round)
@@ -639,8 +644,9 @@ if (max_year == season && max_round != "GF") {
       if (game_day >= today()) {
         city <- Next_round$venue.location[i]
         
+        
         # Construct the API URL with the city name and country code
-        url <- paste0("http://api.openweathermap.org/data/2.5/forecast?q=", city, ",", country, "&appid=", api_key, "&units=metric")
+        url <- URLencode(paste0("http://api.openweathermap.org/data/2.5/forecast?q=", city, ",", country, "&appid=", api_key, "&units=metric"))
         
         # Make the API call
         response <- GET(url)
