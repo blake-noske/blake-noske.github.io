@@ -35,7 +35,8 @@ max_round <- matches$round.abbreviation[length(matches$round.abbreviation)]
 max_year <- as.numeric(matches$round.year[length(matches$round.year)])
 
 if (max_year == season && max_round != "GF") {
-  round = matches$round.roundNumber[length(matches$round.roundNumber)]+1
+  Lineup <- fetch_lineup(season = season)
+  round = Lineup[Lineup$status != "CONCLUDED",]$round.roundNumber[1]
   
   matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
   matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
@@ -174,6 +175,7 @@ if (max_year == season && max_round != "GF") {
   # Weighted average for each team ------------------------------------------
   
   Lineup <- fetch_lineup(season = season,round_number = round)
+  
   if ('position' %in% names(Lineup)==TRUE) {
     Lineup <- Lineup[Lineup$position != "EMERG", ]
     Lineup$teamName <- replace_teams(Lineup$teamName)
