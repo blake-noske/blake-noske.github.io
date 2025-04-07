@@ -169,8 +169,12 @@ if (max_year == season && max_round != "GF") {
   
   Next_round <- cbind(Next_round,Next_round_weather)
   
-  matches <- matches[matches$match.date != matches[matches$round.year == max_year & matches$round.roundNumber == round,]$match.date,]
-  
+  if (is.na(matches[matches$round.year == max_year & matches$round.roundNumber == round,]$match.date[1]) == TRUE) {
+    matches <- matches
+  } else{
+    matches <- matches[matches$match.date != matches[matches$round.year == max_year & matches$round.roundNumber == round,]$match.date,]
+  }
+    
   matches$match.homeTeam.name <- replace_teams(matches$match.homeTeam.name)
   matches$match.awayTeam.name <- replace_teams(matches$match.awayTeam.name)
   matches$venue.name <- replace_venues(matches$venue.name)
