@@ -122,6 +122,8 @@ if (max_year == season && max_round != "GF") {
       
       if (is.null(forecast_basic)==TRUE){
         weather = "SUNNY"
+        forecast_basic = "SUNNY"
+        wind_speed = 0
       }
       if (forecast_basic == "Mist" ||
           forecast_basic == "Smoke" ||
