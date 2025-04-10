@@ -76,10 +76,15 @@ def extract_features(home_team, away_team, venue,weather):
     home_stats = team_stats[team_stats['Team'] == home_team].iloc[:, 1:].values.flatten()
     away_stats = team_stats[team_stats['Team'] == away_team].iloc[:, 1:].values.flatten()
     
+   if venue in team_form.columns:
+        home_venue_streak = venue_streaks.loc[home_team, venue].flatten()
+        away_venue_streak = venue_streaks.loc[away_team, venue].flatten()
+    else:
+        home_venue_streak = 0
+        away_venue_streak = 0
+    
     # Get the win streaks
     team_win_streak = win_streaks.loc[away_team, home_team].flatten()
-    home_venue_streak = venue_streaks.loc[home_team, venue].flatten()
-    away_venue_streak = venue_streaks.loc[away_team, venue].flatten()
     home_team_form = team_form.loc[team_form['Team'] == home_team, 'Current.Form'].values[0].flatten()
     away_team_form = team_form.loc[team_form['Team'] == home_team, 'Current.Form'].values[0].flatten()
     
