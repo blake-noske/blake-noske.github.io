@@ -80,8 +80,8 @@ def extract_features(home_team, away_team, venue,weather):
         home_venue_streak = venue_streaks.loc[home_team, venue].flatten()
         away_venue_streak = venue_streaks.loc[away_team, venue].flatten()
     else:
-        home_venue_streak = 0
-        away_venue_streak = 0
+        home_venue_streak = np.array([0])
+        away_venue_streak = np.array([0])
     
     # Get the win streaks
     team_win_streak = win_streaks.loc[away_team, home_team].flatten()
