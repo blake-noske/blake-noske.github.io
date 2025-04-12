@@ -3,63 +3,63 @@
         "Match": "Adelaide vs Geelong",
         "Venue": "Adelaide Oval",
         "Prediction": "Adelaide 1-39",
-        "Market": "$2.51",
-        "Probability": "39.96%"
+        "Market": "$2.50",
+        "Probability": "40.00%"
     },
     {
         "Match": "Collingwood vs Sydney",
         "Venue": "Adelaide Oval",
         "Prediction": "Collingwood 1-39",
-        "Market": "$3.01",
-        "Probability": "33.30%"
+        "Market": "$2.50",
+        "Probability": "40.00%"
     },
     {
         "Match": "North Melbourne vs Gold Coast",
         "Venue": "Barossa Park",
         "Prediction": "Gold Coast 1-39",
-        "Market": "$3.76",
-        "Probability": "26.64%"
+        "Market": "$3.75",
+        "Probability": "26.67%"
     },
     {
         "Match": "Carlton vs West Coast",
         "Venue": "Adelaide Oval",
         "Prediction": "Carlton 1-39",
-        "Market": "$2.51",
-        "Probability": "39.96%"
+        "Market": "$3.00",
+        "Probability": "33.33%"
     },
     {
         "Match": "Footscray vs Brisbane Lions",
         "Venue": "Norwood Oval",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.76",
-        "Probability": "26.64%"
+        "Prediction": "Footscray 1-39",
+        "Market": "$3.00",
+        "Probability": "33.33%"
     },
     {
         "Match": "Melbourne vs Essendon",
         "Venue": "Adelaide Oval",
         "Prediction": "Essendon 1-39",
-        "Market": "$3.76",
-        "Probability": "26.64%"
+        "Market": "$3.75",
+        "Probability": "26.67%"
     },
     {
         "Match": "Richmond vs Fremantle",
         "Venue": "Barossa Park",
         "Prediction": "Fremantle 1-39",
-        "Market": "$3.01",
-        "Probability": "33.30%"
+        "Market": "$3.00",
+        "Probability": "33.33%"
     },
     {
         "Match": "St Kilda vs GWS",
         "Venue": "Norwood Oval",
         "Prediction": "St Kilda 1-39",
-        "Market": "$2.15",
-        "Probability": "46.62%"
+        "Market": "$2.50",
+        "Probability": "40.00%"
     },
     {
         "Match": "Port Adelaide vs Hawthorn",
         "Venue": "Adelaide Oval",
         "Prediction": "Hawthorn 1-39",
-        "Market": "$2.51",
-        "Probability": "39.96%"
+        "Market": "$3.00",
+        "Probability": "33.33%"
     }
 ]
