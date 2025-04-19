@@ -4,55 +4,55 @@
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
         "Market": "$3.02",
-        "Probability": "33.21%"
+        "Probability": "33.11%"
     },
     {
         "Match": "North Melbourne vs Carlton",
         "Venue": "Marvel",
         "Prediction": "Carlton 40+",
-        "Market": "$3.77",
-        "Probability": "26.57%"
+        "Market": "$3.78",
+        "Probability": "26.49%"
     },
     {
         "Match": "West Coast vs Essendon",
         "Venue": "Optus Stadium",
-        "Prediction": "West Coast 1-39",
-        "Market": "$3.02",
-        "Probability": "33.21%"
+        "Prediction": "Essendon 40+",
+        "Market": "$5.04",
+        "Probability": "19.87%"
     },
     {
         "Match": "Melbourne vs Fremantle",
         "Venue": "M.C.G.",
-        "Prediction": "Fremantle 1-39",
-        "Market": "$2.51",
-        "Probability": "39.85%"
+        "Prediction": "Melbourne 1-39",
+        "Market": "$2.52",
+        "Probability": "39.74%"
     },
     {
         "Match": "Adelaide vs GWS",
         "Venue": "Adelaide Oval",
         "Prediction": "Adelaide 1-39",
         "Market": "$3.02",
-        "Probability": "33.21%"
+        "Probability": "33.11%"
     },
     {
         "Match": "Richmond vs Gold Coast",
         "Venue": "Marvel",
         "Prediction": "Gold Coast 1-39",
         "Market": "$2.16",
-        "Probability": "46.49%"
+        "Probability": "46.36%"
     },
     {
         "Match": "Sydney vs Port Adelaide",
         "Venue": "S.C.G.",
         "Prediction": "Port Adelaide 1-39",
-        "Market": "$3.77",
-        "Probability": "26.57%"
+        "Market": "$3.78",
+        "Probability": "26.49%"
     },
     {
         "Match": "Footscray vs St Kilda",
         "Venue": "Marvel",
         "Prediction": "Footscray 1-39",
         "Market": "$3.02",
-        "Probability": "33.21%"
+        "Probability": "33.11%"
     }
 ]
