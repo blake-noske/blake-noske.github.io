@@ -3,13 +3,13 @@
         "Match": "Essendon vs North Melbourne",
         "Venue": "Marvel",
         "Prediction": "Essendon 1-39",
-        "Market": "$3.03",
-        "Probability": "33.08%"
+        "Market": "$2.52",
+        "Probability": "39.70%"
     },
     {
         "Match": "St Kilda vs Fremantle",
         "Venue": "Marvel",
-        "Prediction": "Fremantle 1-39",
+        "Prediction": "St Kilda 1-39",
         "Market": "$3.03",
         "Probability": "33.08%"
     },
@@ -44,22 +44,22 @@
     {
         "Match": "Sydney vs GWS",
         "Venue": "S.C.G.",
-        "Prediction": "GWS 1-39",
-        "Market": "$3.78",
-        "Probability": "26.47%"
+        "Prediction": "Sydney 1-39",
+        "Market": "$2.52",
+        "Probability": "39.70%"
     },
     {
         "Match": "Hawthorn vs Richmond",
         "Venue": "M.C.G.",
         "Prediction": "Hawthorn 1-39",
-        "Market": "$3.03",
-        "Probability": "33.08%"
+        "Market": "$2.52",
+        "Probability": "39.70%"
     },
     {
         "Match": "Brisbane Lions vs Gold Coast",
         "Venue": "Gabba",
-        "Prediction": "Gold Coast 1-39",
-        "Market": "$3.78",
-        "Probability": "26.47%"
+        "Prediction": "Brisbane Lions 1-39",
+        "Market": "$3.03",
+        "Probability": "33.08%"
     }
 ]
