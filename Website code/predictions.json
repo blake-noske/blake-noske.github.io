@@ -10,20 +10,20 @@
         "Match": "St Kilda vs Fremantle",
         "Venue": "Marvel",
         "Prediction": "St Kilda 1-39",
-        "Market": "$3.03",
-        "Probability": "33.08%"
+        "Market": "$2.52",
+        "Probability": "39.70%"
     },
     {
         "Match": "Footscray vs Port Adelaide",
         "Venue": "Mars Stadium",
-        "Prediction": "Footscray 1-39",
-        "Market": "$3.03",
-        "Probability": "33.08%"
+        "Prediction": "Footscray 40+",
+        "Market": "$3.78",
+        "Probability": "26.47%"
     },
     {
         "Match": "Adelaide vs Carlton",
         "Venue": "Adelaide Oval",
-        "Prediction": "Carlton 1-39",
+        "Prediction": "Adelaide 1-39",
         "Market": "$3.03",
         "Probability": "33.08%"
     },
@@ -31,8 +31,8 @@
         "Match": "Collingwood vs Geelong",
         "Venue": "M.C.G.",
         "Prediction": "Geelong 1-39",
-        "Market": "$3.78",
-        "Probability": "26.47%"
+        "Market": "$3.03",
+        "Probability": "33.08%"
     },
     {
         "Match": "West Coast vs Melbourne",
