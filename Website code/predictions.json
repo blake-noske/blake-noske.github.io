@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "Match": "Adelaide vs Geelong",
         "Venue": "Adelaide Oval",
         "Prediction": "Adelaide 1-39",
@@ -61,5 +62,12 @@
         "Prediction": "Hawthorn 1-39",
         "Market": "$2.51",
         "Probability": "39.96%"
+=======
+        "Match": "Brisbane Lions vs Essendon",
+        "Venue": "Gabba",
+        "Prediction": "Brisbane Lions 1-39",
+        "Market": "$2.53",
+        "Probability": "39.67%"
+>>>>>>> dev
     }
 ]
