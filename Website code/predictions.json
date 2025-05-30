@@ -3,15 +3,15 @@
         "Match": "Brisbane Lions vs Essendon",
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.03",
-        "Probability": "33.06%"
+        "Market": "$2.53",
+        "Probability": "39.67%"
     },
     {
         "Match": "Collingwood vs Hawthorn",
         "Venue": "M.C.G.",
-        "Prediction": "Hawthorn 1-39",
-        "Market": "$2.53",
-        "Probability": "39.67%"
+        "Prediction": "Collingwood 1-39",
+        "Market": "$3.03",
+        "Probability": "33.06%"
     },
     {
         "Match": "Gold Coast vs Fremantle",
@@ -38,8 +38,8 @@
         "Match": "Melbourne vs St Kilda",
         "Venue": "TIO Traeger Park",
         "Prediction": "Melbourne 1-39",
-        "Market": "$3.03",
-        "Probability": "33.06%"
+        "Market": "$2.53",
+        "Probability": "39.67%"
     },
     {
         "Match": "West Coast vs Geelong",
