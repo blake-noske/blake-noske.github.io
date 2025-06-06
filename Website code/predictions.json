@@ -31,21 +31,21 @@
         "Match": "GWS vs Port Adelaide",
         "Venue": "Corroboree Group Oval Manuka",
         "Prediction": "Port Adelaide 1-39",
-        "Market": "$2.56",
-        "Probability": "39.08%"
+        "Market": "$3.08",
+        "Probability": "32.57%"
     },
     {
         "Match": "North Melbourne vs West Coast",
         "Venue": "Hands Oval",
         "Prediction": "North Melbourne 1-39",
-        "Market": "$2.56",
-        "Probability": "39.08%"
+        "Market": "$2.20",
+        "Probability": "45.60%"
     },
     {
         "Match": "Carlton vs Essendon",
         "Venue": "M.C.G.",
-        "Prediction": "Carlton 40+",
-        "Market": "$5.12",
-        "Probability": "19.54%"
+        "Prediction": "Carlton 1-39",
+        "Market": "$3.08",
+        "Probability": "32.57%"
     }
 ]
