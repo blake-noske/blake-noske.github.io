@@ -9,16 +9,16 @@
     {
         "Match": "Sydney vs Footscray",
         "Venue": "S.C.G.",
-        "Prediction": "Sydney 1-39",
+        "Prediction": "Footscray 1-39",
         "Market": "$3.05",
         "Probability": "32.88%"
     },
     {
         "Match": "Gold Coast vs Melbourne",
         "Venue": "People First Stadium",
-        "Prediction": "Gold Coast 40+",
-        "Market": "$5.07",
-        "Probability": "19.73%"
+        "Prediction": "Melbourne 1-39",
+        "Market": "$3.05",
+        "Probability": "32.88%"
     },
     {
         "Match": "Hawthorn vs North Melbourne",
@@ -38,8 +38,8 @@
         "Match": "Richmond vs Adelaide",
         "Venue": "M.C.G.",
         "Prediction": "Adelaide 1-39",
-        "Market": "$3.05",
-        "Probability": "32.88%"
+        "Market": "$3.81",
+        "Probability": "26.30%"
     },
     {
         "Match": "Fremantle vs St Kilda",
