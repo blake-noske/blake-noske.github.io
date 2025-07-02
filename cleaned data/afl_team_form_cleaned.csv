@@ -1,19 +1,19 @@
 "","Team","Current.Form"
-"1","Adelaide",156
+"1","Adelaide",148
 "2","Brisbane Lions",24
-"3","Carlton",13
-"4","Collingwood",121
+"3","Carlton",-13
+"4","Collingwood",141
 "5","Essendon",-189
-"6","Footscray",117
-"7","Fremantle",86
+"6","Footscray",206
+"7","Fremantle",141
 "8","GWS",-8
 "9","Geelong",252
-"10","Gold Coast",2
-"11","Hawthorn",-35
-"12","Melbourne",0
-"13","North Melbourne",-37
-"14","Port Adelaide",-89
-"15","Richmond",-72
-"16","St Kilda",-106
-"17","Sydney",-91
-"18","West Coast",-93
+"10","Gold Coast",-15
+"11","Hawthorn",-67
+"12","Melbourne",10
+"13","North Melbourne",-26
+"14","Port Adelaide",-103
+"15","Richmond",-153
+"16","St Kilda",-125
+"17","Sydney",-64
+"18","West Coast",-125
