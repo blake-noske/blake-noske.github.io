@@ -2,9 +2,9 @@
     {
         "Match": "North Melbourne vs Footscray",
         "Venue": "Marvel",
-        "Prediction": "North Melbourne 1-39",
-        "Market": "$3.07",
-        "Probability": "32.60%"
+        "Prediction": "Footscray 1-39",
+        "Market": "$2.56",
+        "Probability": "39.13%"
     },
     {
         "Match": "Carlton vs Collingwood",
@@ -24,8 +24,8 @@
         "Match": "Essendon vs Gold Coast",
         "Venue": "Marvel",
         "Prediction": "Gold Coast 1-39",
-        "Market": "$2.56",
-        "Probability": "39.13%"
+        "Market": "$3.84",
+        "Probability": "26.08%"
     },
     {
         "Match": "Geelong vs Richmond",
@@ -52,14 +52,14 @@
         "Match": "Sydney vs Fremantle",
         "Venue": "S.C.G.",
         "Prediction": "Fremantle 1-39",
-        "Market": "$1.92",
-        "Probability": "52.17%"
+        "Market": "$2.20",
+        "Probability": "45.65%"
     },
     {
         "Match": "Adelaide vs Melbourne",
         "Venue": "Adelaide Oval",
-        "Prediction": "Melbourne 1-39",
-        "Market": "$3.84",
-        "Probability": "26.08%"
+        "Prediction": "Adelaide 1-39",
+        "Market": "$3.07",
+        "Probability": "32.60%"
     }
 ]
