@@ -9,7 +9,7 @@
     {
         "Match": "Essendon vs Footscray",
         "Venue": "Marvel",
-        "Prediction": "Essendon 1-39",
+        "Prediction": "Footscray 1-39",
         "Market": "$3.05",
         "Probability": "32.79%"
     },
@@ -17,15 +17,15 @@
         "Match": "GWS vs Sydney",
         "Venue": "ENGIE Stadium",
         "Prediction": "GWS 1-39",
-        "Market": "$3.05",
-        "Probability": "32.79%"
+        "Market": "$2.18",
+        "Probability": "45.91%"
     },
     {
         "Match": "Gold Coast vs Brisbane Lions",
         "Venue": "People First Stadium",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.05",
-        "Probability": "32.79%"
+        "Prediction": "Gold Coast 1-39",
+        "Market": "$2.55",
+        "Probability": "39.35%"
     },
     {
         "Match": "Fremantle vs West Coast",
