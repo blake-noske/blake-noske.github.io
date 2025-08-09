@@ -4,62 +4,62 @@
         "Venue": "M.C.G.",
         "Prediction": "Hawthorn 1-39",
         "Market": "$2.18",
-        "Probability": "45.96%"
+        "Probability": "46.00%"
     },
     {
         "Match": "Geelong vs Essendon",
         "Venue": "GMHBA Stadium",
-        "Prediction": "Geelong 1-39",
+        "Prediction": "Geelong 40+",
         "Market": "$3.05",
-        "Probability": "32.83%"
+        "Probability": "32.86%"
     },
     {
         "Match": "Richmond vs St Kilda",
         "Venue": "M.C.G.",
-        "Prediction": "St Kilda 1-39",
+        "Prediction": "St Kilda 40+",
         "Market": "$3.81",
-        "Probability": "26.26%"
+        "Probability": "26.29%"
     },
     {
         "Match": "Brisbane Lions vs Sydney",
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
-        "Market": "$2.18",
-        "Probability": "45.96%"
+        "Market": "$3.05",
+        "Probability": "32.86%"
     },
     {
         "Match": "Carlton vs Gold Coast",
         "Venue": "Marvel",
         "Prediction": "Carlton 1-39",
         "Market": "$3.81",
-        "Probability": "26.26%"
+        "Probability": "26.29%"
     },
     {
         "Match": "Port Adelaide vs Fremantle",
         "Venue": "Adelaide Oval",
         "Prediction": "Fremantle 1-39",
         "Market": "$3.05",
-        "Probability": "32.83%"
+        "Probability": "32.86%"
     },
     {
         "Match": "GWS vs North Melbourne",
         "Venue": "Corroboree Group Oval Manuka",
         "Prediction": "GWS 1-39",
         "Market": "$2.18",
-        "Probability": "45.96%"
+        "Probability": "46.00%"
     },
     {
         "Match": "Melbourne vs Footscray",
         "Venue": "M.C.G.",
         "Prediction": "Footscray 40+",
         "Market": "$3.81",
-        "Probability": "26.26%"
+        "Probability": "26.29%"
     },
     {
         "Match": "West Coast vs Adelaide",
         "Venue": "Optus Stadium",
         "Prediction": "Adelaide 1-39",
         "Market": "$1.91",
-        "Probability": "52.52%"
+        "Probability": "52.57%"
     }
 ]
