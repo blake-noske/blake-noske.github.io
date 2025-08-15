@@ -2,9 +2,9 @@
     {
         "Match": "Essendon vs St Kilda",
         "Venue": "Marvel",
-        "Prediction": "St Kilda 1-39",
-        "Market": "$2.18",
-        "Probability": "45.88%"
+        "Prediction": "Essendon 1-39",
+        "Market": "$3.82",
+        "Probability": "26.22%"
     },
     {
         "Match": "Fremantle vs Brisbane Lions",
@@ -45,21 +45,21 @@
         "Match": "North Melbourne vs Richmond",
         "Venue": "Ninja Stadium",
         "Prediction": "North Melbourne 1-39",
-        "Market": "$2.55",
-        "Probability": "39.32%"
+        "Market": "$3.06",
+        "Probability": "32.77%"
     },
     {
         "Match": "Sydney vs Geelong",
         "Venue": "S.C.G.",
-        "Prediction": "Geelong 1-39",
-        "Market": "$3.06",
-        "Probability": "32.77%"
+        "Prediction": "Geelong 40+",
+        "Market": "$3.82",
+        "Probability": "26.22%"
     },
     {
         "Match": "Footscray vs West Coast",
         "Venue": "Marvel",
         "Prediction": "Footscray 40+",
-        "Market": "$2.55",
-        "Probability": "39.32%"
+        "Market": "$3.06",
+        "Probability": "32.77%"
     }
 ]
