@@ -2,16 +2,16 @@
     {
         "Match": "Essendon vs Carlton",
         "Venue": "M.C.G.",
-        "Prediction": "Essendon 1-39",
-        "Market": "$3.06",
-        "Probability": "32.74%"
+        "Prediction": "Carlton 1-39",
+        "Market": "$2.55",
+        "Probability": "39.29%"
     },
     {
         "Match": "Collingwood vs Melbourne",
         "Venue": "M.C.G.",
         "Prediction": "Collingwood 1-39",
-        "Market": "$2.55",
-        "Probability": "39.29%"
+        "Market": "$3.06",
+        "Probability": "32.74%"
     },
     {
         "Match": "Port Adelaide vs Gold Coast",
@@ -31,42 +31,42 @@
         "Match": "Richmond vs Geelong",
         "Venue": "M.C.G.",
         "Prediction": "Geelong 40+",
-        "Market": "$2.55",
-        "Probability": "39.29%"
+        "Market": "$3.06",
+        "Probability": "32.74%"
     },
     {
         "Match": "West Coast vs Sydney",
         "Venue": "Optus Stadium",
         "Prediction": "Sydney 1-39",
-        "Market": "$3.06",
-        "Probability": "32.74%"
+        "Market": "$3.82",
+        "Probability": "26.19%"
     },
     {
         "Match": "GWS vs St Kilda",
         "Venue": "ENGIE Stadium",
-        "Prediction": "GWS 40+",
-        "Market": "$3.82",
-        "Probability": "26.19%"
+        "Prediction": "GWS 1-39",
+        "Market": "$2.19",
+        "Probability": "45.84%"
     },
     {
         "Match": "Footscray vs Fremantle",
         "Venue": "Marvel",
         "Prediction": "Footscray 1-39",
-        "Market": "$2.55",
-        "Probability": "39.29%"
+        "Market": "$3.06",
+        "Probability": "32.74%"
     },
     {
         "Match": "Brisbane Lions vs Hawthorn",
         "Venue": "Gabba",
         "Prediction": "Hawthorn 1-39",
-        "Market": "$3.06",
-        "Probability": "32.74%"
+        "Market": "$2.55",
+        "Probability": "39.29%"
     },
     {
         "Match": "Gold Coast vs Essendon",
         "Venue": "People First Stadium",
         "Prediction": "Gold Coast 1-39",
-        "Market": "$3.06",
-        "Probability": "32.74%"
+        "Market": "$2.55",
+        "Probability": "39.29%"
     }
 ]
