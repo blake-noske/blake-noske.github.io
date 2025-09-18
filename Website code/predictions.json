@@ -1,16 +1,16 @@
 [
     {
-        "Match": "Adelaide vs Hawthorn",
-        "Venue": "Adelaide Oval",
-        "Prediction": "Hawthorn 40+",
-        "Market": "$5.12",
-        "Probability": "19.56%"
+        "Match": "Geelong vs Hawthorn",
+        "Venue": "M.C.G.",
+        "Prediction": "Geelong 1-39",
+        "Market": "$2.56",
+        "Probability": "39.08%"
     },
     {
-        "Match": "Brisbane Lions vs Gold Coast",
-        "Venue": "Gabba",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.07",
-        "Probability": "32.60%"
+        "Match": "Collingwood vs Brisbane Lions",
+        "Venue": "M.C.G.",
+        "Prediction": "Collingwood 1-39",
+        "Market": "$3.84",
+        "Probability": "26.05%"
     }
 ]
