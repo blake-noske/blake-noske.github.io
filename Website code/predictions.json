@@ -1,16 +1,9 @@
 [
     {
-        "Match": "Geelong vs Hawthorn",
+        "Match": "Geelong vs Brisbane Lions",
         "Venue": "M.C.G.",
-        "Prediction": "Hawthorn 1-39",
-        "Market": "$3.08",
-        "Probability": "32.57%"
-    },
-    {
-        "Match": "Collingwood vs Brisbane Lions",
-        "Venue": "M.C.G.",
-        "Prediction": "Collingwood 1-39",
-        "Market": "$3.08",
-        "Probability": "32.57%"
+        "Prediction": "Geelong 1-39",
+        "Market": "$2.56",
+        "Probability": "39.08%"
     }
 ]
