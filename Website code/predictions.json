@@ -1,37 +1,9 @@
 [
     {
-        "Match": "Sydney vs Carlton",
-        "Venue": "S.C.G.",
-        "Prediction": "Sydney 1-39",
-        "Market": "$2.55",
-        "Probability": "39.22%"
-    },
-    {
-        "Match": "Gold Coast vs Geelong",
-        "Venue": "People First Stadium",
-        "Prediction": "Geelong 1-39",
-        "Market": "$2.55",
-        "Probability": "39.22%"
-    },
-    {
-        "Match": "GWS vs Hawthorn",
-        "Venue": "ENGIE Stadium",
-        "Prediction": "GWS 1-39",
-        "Market": "$3.06",
-        "Probability": "32.68%"
-    },
-    {
-        "Match": "Brisbane Lions vs Footscray",
-        "Venue": "Gabba",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.06",
-        "Probability": "32.68%"
-    },
-    {
-        "Match": "St Kilda vs Collingwood",
+        "Match": "Carlton vs Richmond",
         "Venue": "M.C.G.",
-        "Prediction": "Collingwood 1-39",
-        "Market": "$3.06",
-        "Probability": "32.68%"
+        "Prediction": "Carlton 1-39",
+        "Market": "$2.19",
+        "Probability": "45.80%"
     }
 ]
