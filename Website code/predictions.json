@@ -3,63 +3,63 @@
         "Match": "Carlton vs Richmond",
         "Venue": "M.C.G.",
         "Prediction": "Carlton 1-39",
-        "Market": "$3.83",
-        "Probability": "26.17%"
+        "Market": "$3.05",
+        "Probability": "32.83%"
     },
     {
         "Match": "Essendon vs Hawthorn",
         "Venue": "M.C.G.",
-        "Prediction": "Essendon 1-39",
-        "Market": "$3.06",
-        "Probability": "32.72%"
+        "Prediction": "Hawthorn 1-39",
+        "Market": "$2.54",
+        "Probability": "39.40%"
     },
     {
         "Match": "Footscray vs GWS",
         "Venue": "Marvel",
-        "Prediction": "GWS 1-39",
-        "Market": "$3.06",
-        "Probability": "32.72%"
+        "Prediction": "Footscray 1-39",
+        "Market": "$2.54",
+        "Probability": "39.40%"
     },
     {
         "Match": "Geelong vs Fremantle",
         "Venue": "GMHBA Stadium",
         "Prediction": "Geelong 1-39",
-        "Market": "$2.55",
-        "Probability": "39.26%"
+        "Market": "$3.05",
+        "Probability": "32.83%"
     },
     {
         "Match": "Sydney vs Brisbane Lions",
         "Venue": "S.C.G.",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.83",
-        "Probability": "26.17%"
+        "Prediction": "Sydney 1-39",
+        "Market": "$3.05",
+        "Probability": "32.83%"
     },
     {
         "Match": "Collingwood vs Adelaide",
         "Venue": "M.C.G.",
         "Prediction": "Collingwood 1-39",
-        "Market": "$3.06",
-        "Probability": "32.72%"
+        "Market": "$3.05",
+        "Probability": "32.83%"
     },
     {
         "Match": "North Melbourne vs Port Adelaide",
         "Venue": "Marvel",
         "Prediction": "North Melbourne 1-39",
-        "Market": "$2.55",
-        "Probability": "39.26%"
+        "Market": "$2.54",
+        "Probability": "39.40%"
     },
     {
         "Match": "Melbourne vs St Kilda",
         "Venue": "M.C.G.",
         "Prediction": "St Kilda 1-39",
-        "Market": "$3.06",
-        "Probability": "32.72%"
+        "Market": "$3.05",
+        "Probability": "32.83%"
     },
     {
         "Match": "Gold Coast vs West Coast",
         "Venue": "People First Stadium",
         "Prediction": "Gold Coast 1-39",
-        "Market": "$3.06",
-        "Probability": "32.72%"
+        "Market": "$2.54",
+        "Probability": "39.40%"
     }
 ]
