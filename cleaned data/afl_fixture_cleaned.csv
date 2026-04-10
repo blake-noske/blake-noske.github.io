@@ -1,5 +1,5 @@
 "","round.name","utcStartTime","local_time","home.team.name","away.team.name","venue.name","venue.location","venue.timezone","Next_round_weather"
-"1","Round 5",2026-04-09 09:40:00,"2026-04-09 19:10:00","Adelaide","Carlton","Adelaide Oval","Adelaide","Australia/Adelaide","RAIN"
+"1","Round 5",2026-04-09 09:40:00,"2026-04-09 19:10:00","Adelaide","Carlton","Adelaide Oval","Adelaide","Australia/Adelaide","THUNDERSTORMS"
 "2","Round 5",2026-04-10 09:40:00,"2026-04-10 19:10:00","Collingwood","Fremantle","Adelaide Oval","Adelaide","Australia/Adelaide","RAIN"
 "3","Round 5",2026-04-11 02:35:00,"2026-04-11 12:05:00","North Melbourne","Brisbane Lions","Barossa Park","Lyndoch","Australia/Adelaide","RAIN"
 "4","Round 5",2026-04-11 03:15:00,"2026-04-11 12:45:00","Essendon","Melbourne","Adelaide Oval","Adelaide","Australia/Adelaide","RAIN"
@@ -7,4 +7,4 @@
 "6","Round 5",2026-04-11 09:35:00,"2026-04-11 19:05:00","Hawthorn","Footscray","Adelaide Oval","Adelaide","Australia/Adelaide","RAIN"
 "7","Round 5",2026-04-12 02:30:00,"2026-04-12 12:00:00","Geelong","West Coast","Norwood Oval","Adelaide","Australia/Adelaide","RAIN"
 "8","Round 5",2026-04-12 05:15:00,"2026-04-12 14:45:00","GWS","Richmond","Barossa Park","Lyndoch","Australia/Adelaide","OVERCAST"
-"9","Round 5",2026-04-12 09:15:00,"2026-04-12 18:45:00","Port Adelaide","St Kilda","Adelaide Oval","Adelaide","Australia/Adelaide","RAIN"
+"9","Round 5",2026-04-12 09:15:00,"2026-04-12 18:45:00","Port Adelaide","St Kilda","Adelaide Oval","Adelaide","Australia/Adelaide","OVERCAST"
