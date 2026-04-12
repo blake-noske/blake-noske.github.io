@@ -44,7 +44,7 @@
     {
         "Match": "Geelong vs West Coast",
         "Venue": "Norwood Oval",
-        "Prediction": "Geelong 1-39",
+        "Prediction": "Geelong 40+",
         "Market": "$3.06",
         "Probability": "32.78%"
     },
@@ -52,14 +52,14 @@
         "Match": "GWS vs Richmond",
         "Venue": "Barossa Park",
         "Prediction": "GWS 40+",
-        "Market": "$3.06",
-        "Probability": "32.78%"
+        "Market": "$2.55",
+        "Probability": "39.34%"
     },
     {
         "Match": "Port Adelaide vs St Kilda",
         "Venue": "Adelaide Oval",
         "Prediction": "Port Adelaide 1-39",
-        "Market": "$3.82",
-        "Probability": "26.23%"
+        "Market": "$3.06",
+        "Probability": "32.78%"
     }
 ]
