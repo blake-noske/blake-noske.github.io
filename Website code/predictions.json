@@ -10,15 +10,15 @@
         "Match": "Geelong vs Footscray",
         "Venue": "GMHBA Stadium",
         "Prediction": "Geelong 1-39",
-        "Market": "$3.06",
-        "Probability": "32.75%"
+        "Market": "$2.19",
+        "Probability": "45.85%"
     },
     {
         "Match": "Sydney vs GWS",
         "Venue": "S.C.G.",
-        "Prediction": "Sydney 1-39",
-        "Market": "$3.06",
-        "Probability": "32.75%"
+        "Prediction": "GWS 1-39",
+        "Market": "$3.82",
+        "Probability": "26.20%"
     },
     {
         "Match": "Gold Coast vs Essendon",
@@ -30,14 +30,14 @@
     {
         "Match": "Hawthorn vs Port Adelaide",
         "Venue": "Marvel",
-        "Prediction": "Hawthorn 1-39",
+        "Prediction": "Port Adelaide 1-39",
         "Market": "$3.82",
         "Probability": "26.20%"
     },
     {
         "Match": "Adelaide vs St Kilda",
         "Venue": "Adelaide Oval",
-        "Prediction": "St Kilda 1-39",
+        "Prediction": "Adelaide 1-39",
         "Market": "$3.06",
         "Probability": "32.75%"
     },
