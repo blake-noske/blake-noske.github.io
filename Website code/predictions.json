@@ -2,7 +2,7 @@
     {
         "Match": "Footscray vs Sydney",
         "Venue": "Marvel",
-        "Prediction": "Footscray 1-39",
+        "Prediction": "Sydney 1-39",
         "Market": "$3.06",
         "Probability": "32.78%"
     },
@@ -10,8 +10,8 @@
         "Match": "Richmond vs Melbourne",
         "Venue": "M.C.G.",
         "Prediction": "Richmond 1-39",
-        "Market": "$3.82",
-        "Probability": "26.23%"
+        "Market": "$3.06",
+        "Probability": "32.78%"
     },
     {
         "Match": "Hawthorn vs Gold Coast",
@@ -24,8 +24,8 @@
         "Match": "Essendon vs Collingwood",
         "Venue": "M.C.G.",
         "Prediction": "Essendon 1-39",
-        "Market": "$2.55",
-        "Probability": "39.34%"
+        "Market": "$3.06",
+        "Probability": "32.78%"
     },
     {
         "Match": "Port Adelaide vs Geelong",
@@ -44,22 +44,22 @@
     {
         "Match": "St Kilda vs West Coast",
         "Venue": "Marvel",
-        "Prediction": "West Coast 1-39",
-        "Market": "$3.82",
-        "Probability": "26.23%"
+        "Prediction": "St Kilda 1-39",
+        "Market": "$1.70",
+        "Probability": "59.01%"
     },
     {
         "Match": "Brisbane Lions vs Adelaide",
         "Venue": "Gabba",
-        "Prediction": "Adelaide 1-39",
+        "Prediction": "Brisbane Lions 1-39",
         "Market": "$3.82",
         "Probability": "26.23%"
     },
     {
         "Match": "GWS vs North Melbourne",
         "Venue": "Corroboree Group Oval Manuka",
-        "Prediction": "North Melbourne 1-39",
-        "Market": "$3.82",
-        "Probability": "26.23%"
+        "Prediction": "GWS 1-39",
+        "Market": "$3.06",
+        "Probability": "32.78%"
     }
 ]
