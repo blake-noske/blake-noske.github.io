@@ -4,62 +4,62 @@
         "Venue": "M.C.G.",
         "Prediction": "Hawthorn 40+",
         "Market": "$2.56",
-        "Probability": "39.17%"
+        "Probability": "39.21%"
     },
     {
         "Match": "Footscray vs Fremantle",
         "Venue": "Marvel",
-        "Prediction": "Footscray 1-39",
-        "Market": "$3.07",
-        "Probability": "32.64%"
+        "Prediction": "Fremantle 1-39",
+        "Market": "$2.56",
+        "Probability": "39.21%"
     },
     {
         "Match": "Adelaide vs Port Adelaide",
         "Venue": "Adelaide Oval",
-        "Prediction": "Adelaide 1-39",
+        "Prediction": "Port Adelaide 1-39",
         "Market": "$3.07",
-        "Probability": "32.64%"
+        "Probability": "32.67%"
     },
     {
         "Match": "Essendon vs Brisbane Lions",
         "Venue": "Marvel",
-        "Prediction": "Brisbane Lions 1-39",
+        "Prediction": "Brisbane Lions 40+",
         "Market": "$3.07",
-        "Probability": "32.64%"
+        "Probability": "32.67%"
     },
     {
         "Match": "West Coast vs Richmond",
         "Venue": "Optus Stadium",
         "Prediction": "West Coast 1-39",
-        "Market": "$3.07",
-        "Probability": "32.64%"
+        "Market": "$3.83",
+        "Probability": "26.14%"
     },
     {
         "Match": "Geelong vs North Melbourne",
         "Venue": "GMHBA Stadium",
         "Prediction": "Geelong 1-39",
-        "Market": "$3.07",
-        "Probability": "32.64%"
+        "Market": "$2.56",
+        "Probability": "39.21%"
     },
     {
         "Match": "Carlton vs St Kilda",
         "Venue": "Marvel",
         "Prediction": "Carlton 1-39",
-        "Market": "$2.56",
-        "Probability": "39.17%"
+        "Market": "$3.07",
+        "Probability": "32.67%"
     },
     {
         "Match": "Sydney vs Melbourne",
         "Venue": "S.C.G.",
         "Prediction": "Sydney 1-39",
         "Market": "$3.07",
-        "Probability": "32.64%"
+        "Probability": "32.67%"
     },
     {
         "Match": "Gold Coast vs GWS",
         "Venue": "People First Stadium",
         "Prediction": "GWS 1-39",
         "Market": "$3.83",
-        "Probability": "26.11%"
+        "Probability": "26.14%"
     }
 ]
