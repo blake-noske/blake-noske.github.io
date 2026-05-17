@@ -4,62 +4,62 @@
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
         "Market": "$3.87",
-        "Probability": "25.84%"
+        "Probability": "25.89%"
     },
     {
         "Match": "Sydney vs Collingwood",
         "Venue": "S.C.G.",
         "Prediction": "Sydney 1-39",
         "Market": "$2.58",
-        "Probability": "38.77%"
+        "Probability": "38.83%"
     },
     {
         "Match": "Gold Coast vs Port Adelaide",
         "Venue": "TIO Stadium",
         "Prediction": "Gold Coast 1-39",
         "Market": "$3.10",
-        "Probability": "32.31%"
+        "Probability": "32.36%"
     },
     {
         "Match": "Adelaide vs North Melbourne",
         "Venue": "Adelaide Oval",
         "Prediction": "Adelaide 1-39",
         "Market": "$2.58",
-        "Probability": "38.77%"
+        "Probability": "38.83%"
     },
     {
         "Match": "Melbourne vs Hawthorn",
         "Venue": "M.C.G.",
         "Prediction": "Melbourne 1-39",
         "Market": "$3.10",
-        "Probability": "32.31%"
+        "Probability": "32.36%"
     },
     {
         "Match": "Carlton vs Footscray",
         "Venue": "Marvel",
         "Prediction": "Carlton 1-39",
-        "Market": "$3.10",
-        "Probability": "32.31%"
+        "Market": "$3.87",
+        "Probability": "25.89%"
     },
     {
         "Match": "Essendon vs Fremantle",
         "Venue": "M.C.G.",
-        "Prediction": "Fremantle 1-39",
-        "Market": "$3.10",
-        "Probability": "32.31%"
+        "Prediction": "Essendon 1-39",
+        "Market": "$2.58",
+        "Probability": "38.83%"
     },
     {
         "Match": "St Kilda vs Richmond",
         "Venue": "Marvel",
-        "Prediction": "St Kilda 1-39",
-        "Market": "$3.10",
-        "Probability": "32.31%"
+        "Prediction": "St Kilda 40+",
+        "Market": "$3.87",
+        "Probability": "25.89%"
     },
     {
         "Match": "West Coast vs GWS",
         "Venue": "Optus Stadium",
-        "Prediction": "GWS 1-39",
-        "Market": "$3.87",
-        "Probability": "25.84%"
+        "Prediction": "West Coast 1-39",
+        "Market": "$3.10",
+        "Probability": "32.36%"
     }
 ]
