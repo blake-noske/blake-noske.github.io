@@ -9,16 +9,16 @@
     {
         "Match": "Richmond vs Essendon",
         "Venue": "M.C.G.",
-        "Prediction": "Essendon 40+",
-        "Market": "$5.16",
-        "Probability": "19.42%"
+        "Prediction": "Richmond 1-39",
+        "Market": "$3.10",
+        "Probability": "32.36%"
     },
     {
         "Match": "Fremantle vs St Kilda",
         "Venue": "Optus Stadium",
         "Prediction": "Fremantle 1-39",
-        "Market": "$2.58",
-        "Probability": "38.83%"
+        "Market": "$3.10",
+        "Probability": "32.36%"
     },
     {
         "Match": "North Melbourne vs Gold Coast",
@@ -52,8 +52,8 @@
         "Match": "GWS vs Brisbane Lions",
         "Venue": "ENGIE Stadium",
         "Prediction": "GWS 1-39",
-        "Market": "$2.21",
-        "Probability": "45.31%"
+        "Market": "$2.58",
+        "Probability": "38.83%"
     },
     {
         "Match": "Footscray vs Melbourne",
