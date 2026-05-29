@@ -9,9 +9,9 @@
     {
         "Match": "Carlton vs Geelong",
         "Venue": "M.C.G.",
-        "Prediction": "Geelong 1-39",
-        "Market": "$2.59",
-        "Probability": "38.74%"
+        "Prediction": "Carlton 1-39",
+        "Market": "$3.10",
+        "Probability": "32.28%"
     },
     {
         "Match": "Sydney vs Richmond",
@@ -38,14 +38,14 @@
         "Match": "Melbourne vs GWS",
         "Venue": "TIO Traeger Park",
         "Prediction": "GWS 1-39",
-        "Market": "$3.88",
-        "Probability": "25.83%"
+        "Market": "$3.10",
+        "Probability": "32.28%"
     },
     {
         "Match": "West Coast vs Essendon",
         "Venue": "Optus Stadium",
-        "Prediction": "Essendon 1-39",
-        "Market": "$2.59",
-        "Probability": "38.74%"
+        "Prediction": "West Coast 1-39",
+        "Market": "$3.10",
+        "Probability": "32.28%"
     }
 ]
