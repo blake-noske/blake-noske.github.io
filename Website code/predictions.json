@@ -2,7 +2,7 @@
     {
         "Match": "Adelaide vs Geelong",
         "Venue": "Adelaide Oval",
-        "Prediction": "Adelaide 1-39",
+        "Prediction": "Geelong 1-39",
         "Market": "$3.11",
         "Probability": "32.23%"
     },
@@ -38,14 +38,14 @@
         "Match": "Sydney vs St Kilda",
         "Venue": "S.C.G.",
         "Prediction": "Sydney 1-39",
-        "Market": "$3.11",
-        "Probability": "32.23%"
+        "Market": "$2.59",
+        "Probability": "38.67%"
     },
     {
         "Match": "Essendon vs Carlton",
         "Venue": "M.C.G.",
         "Prediction": "Carlton 1-39",
-        "Market": "$3.11",
-        "Probability": "32.23%"
+        "Market": "$3.88",
+        "Probability": "25.78%"
     }
 ]
