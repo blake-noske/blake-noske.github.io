@@ -9,9 +9,9 @@
     {
         "Match": "Sydney vs Adelaide",
         "Venue": "S.C.G.",
-        "Prediction": "Adelaide 1-39",
-        "Market": "$2.57",
-        "Probability": "38.99%"
+        "Prediction": "Sydney 1-39",
+        "Market": "$3.08",
+        "Probability": "32.50%"
     },
     {
         "Match": "Port Adelaide vs Fremantle",
@@ -52,8 +52,8 @@
         "Match": "Gold Coast vs Footscray",
         "Venue": "People First Stadium",
         "Prediction": "Footscray 1-39",
-        "Market": "$2.57",
-        "Probability": "38.99%"
+        "Market": "$3.85",
+        "Probability": "26.00%"
     },
     {
         "Match": "Essendon vs GWS",
