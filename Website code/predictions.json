@@ -9,7 +9,7 @@
     {
         "Match": "Melbourne vs Geelong",
         "Venue": "M.C.G.",
-        "Prediction": "Geelong 1-39",
+        "Prediction": "Melbourne 1-39",
         "Market": "$3.10",
         "Probability": "32.36%"
     },
@@ -30,7 +30,7 @@
     {
         "Match": "Hawthorn vs Essendon",
         "Venue": "M.C.G.",
-        "Prediction": "Hawthorn 40+",
+        "Prediction": "Hawthorn 1-39",
         "Market": "$3.10",
         "Probability": "32.36%"
     },
@@ -51,15 +51,15 @@
     {
         "Match": "Brisbane Lions vs Port Adelaide",
         "Venue": "Gabba",
-        "Prediction": "Brisbane Lions 40+",
-        "Market": "$3.87",
-        "Probability": "25.89%"
+        "Prediction": "Brisbane Lions 1-39",
+        "Market": "$2.58",
+        "Probability": "38.83%"
     },
     {
         "Match": "North Melbourne vs St Kilda",
         "Venue": "Marvel",
         "Prediction": "St Kilda 1-39",
-        "Market": "$3.87",
-        "Probability": "25.89%"
+        "Market": "$3.10",
+        "Probability": "32.36%"
     }
 ]
