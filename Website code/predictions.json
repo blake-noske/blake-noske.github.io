@@ -23,7 +23,7 @@
     {
         "Match": "Carlton vs Gold Coast",
         "Venue": "Marvel",
-        "Prediction": "Gold Coast 1-39",
+        "Prediction": "Carlton 1-39",
         "Market": "$3.10",
         "Probability": "32.36%"
     },
@@ -45,21 +45,21 @@
         "Match": "Footscray vs Richmond",
         "Venue": "Marvel",
         "Prediction": "Footscray 1-39",
-        "Market": "$3.10",
-        "Probability": "32.36%"
+        "Market": "$2.58",
+        "Probability": "38.83%"
     },
     {
         "Match": "Brisbane Lions vs Port Adelaide",
         "Venue": "Gabba",
         "Prediction": "Brisbane Lions 1-39",
-        "Market": "$2.58",
-        "Probability": "38.83%"
+        "Market": "$2.21",
+        "Probability": "45.30%"
     },
     {
         "Match": "North Melbourne vs St Kilda",
         "Venue": "Marvel",
         "Prediction": "St Kilda 1-39",
-        "Market": "$3.10",
-        "Probability": "32.36%"
+        "Market": "$2.58",
+        "Probability": "38.83%"
     }
 ]
