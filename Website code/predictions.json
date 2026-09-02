@@ -1,16 +1,9 @@
 [
     {
-        "Match": "Footscray vs Collingwood",
-        "Venue": "M.C.G.",
-        "Prediction": "Footscray 1-39",
-        "Market": "$1.97",
-        "Probability": "50.92%"
-    },
-    {
-        "Match": "Melbourne vs Carlton",
-        "Venue": "M.C.G.",
-        "Prediction": "Melbourne 1-39",
-        "Market": "$2.62",
-        "Probability": "38.19%"
+        "Match": "Fremantle vs Hawthorn",
+        "Venue": "Optus Stadium",
+        "Prediction": "Fremantle 1-39",
+        "Market": "$3.13",
+        "Probability": "31.96%"
     }
 ]
