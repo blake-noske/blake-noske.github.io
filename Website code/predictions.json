@@ -16,15 +16,15 @@
     {
         "Match": "Sydney vs Brisbane Lions",
         "Venue": "S.C.G.",
-        "Prediction": "Brisbane Lions 1-39",
-        "Market": "$3.90",
-        "Probability": "25.68%"
+        "Prediction": "Sydney 1-39",
+        "Market": "$2.60",
+        "Probability": "38.52%"
     },
     {
         "Match": "Adelaide vs Footscray",
         "Venue": "Adelaide Oval",
         "Prediction": "Footscray 1-39",
-        "Market": "$3.90",
-        "Probability": "25.68%"
+        "Market": "$3.12",
+        "Probability": "32.10%"
     }
 ]
