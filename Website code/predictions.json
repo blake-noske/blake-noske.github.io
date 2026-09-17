@@ -1,16 +1,16 @@
 [
     {
-        "Match": "Fremantle vs Geelong",
-        "Venue": "Optus Stadium",
+        "Match": "Sydney vs Fremantle",
+        "Venue": "S.C.G.",
         "Prediction": "Fremantle 1-39",
-        "Market": "$2.25",
-        "Probability": "44.60%"
-    },
-    {
-        "Match": "Brisbane Lions vs Adelaide",
-        "Venue": "Gabba",
-        "Prediction": "Brisbane Lions 1-39",
         "Market": "$2.62",
         "Probability": "38.23%"
+    },
+    {
+        "Match": "Hawthorn vs Brisbane Lions",
+        "Venue": "M.C.G.",
+        "Prediction": "Hawthorn 1-39",
+        "Market": "$1.75",
+        "Probability": "57.34%"
     }
 ]
