@@ -1,16 +1,9 @@
 [
     {
-        "Match": "Sydney vs Fremantle",
-        "Venue": "S.C.G.",
-        "Prediction": "Fremantle 1-39",
-        "Market": "$2.25",
-        "Probability": "44.60%"
-    },
-    {
-        "Match": "Hawthorn vs Brisbane Lions",
+        "Match": "Fremantle vs Brisbane Lions",
         "Venue": "M.C.G.",
-        "Prediction": "Hawthorn 1-39",
-        "Market": "$1.75",
-        "Probability": "57.34%"
+        "Prediction": "Fremantle 1-39",
+        "Market": "$2.24",
+        "Probability": "44.71%"
     }
 ]
