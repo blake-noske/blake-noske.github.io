@@ -1,0 +1,1 @@
+I do not take any responsibility for its performance or money lost due to its usage. By using this model to inform your betting decisions you are taking full responsibility for your decisions and removing any liability associated with me.
