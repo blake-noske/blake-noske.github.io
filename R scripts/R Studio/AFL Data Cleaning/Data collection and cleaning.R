@@ -1,4 +1,4 @@
-season = 2026
+season = 2027
 
 library(fitzRoy)
 library(lubridate)
